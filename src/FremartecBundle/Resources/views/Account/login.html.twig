@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block title 'Inicio Sesión'%}
+
+{% block stylesheets %}
+    {{parent()}}
+    <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/signin/signin.css')}}">
+{% endblock %}
+
+{% block body %}
+
+  <div class="form-signin">
+    <div class="page-header">
+      <h1 class="text-center text-primary" style="font-size:45px;">Iniciar Sesión</h1>
+    </div>
+    
+    <hr style="border-top-color:#ddd">
+
+    {% if error %}
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <i class="fa fa-times-circle"></i>&nbsp;<strong>Error!</strong>&nbsp;Usuario y Contraseña no coinciden.
+    </div>
+    {% endif %}
+
+
+    <form action="{{ path("security_check") }}" method="post" role="form">
+      <div class="form-group">
+        <input type="email" class="form-control" id="username" name="_username" placeholder="Email" value="{{last_username}}">
+      </div>
+      <div class="form-group">  
+        <input type="password" class="form-control" id="password" name="_password" placeholder="Password">
+      </div>
+      <button class="btn btn-block btn-primary" type="submit"><i class="fa fa-sign-in"></i>&nbsp;Iniciar Sesión</button>
+    </form>
+
+    {#<h5 class="text-center"><small><a href="{{ path('_secured_resend') }}">olvidaste tu contraseña?</a></small></h5>#}
+
+    <hr style="border-top-color:#ddd">
+    <h5 class="text-center text-muted"><small><a href="{{path('home')}}"><i class="fa fa-long-arrow-left"></i>&nbsp;Volver</a></small></h5>
+
+    <h5 class="text-center text-muted"><small>
+    <abbr title="FREMARTEC" class="initialism">Fremartec</abbr>&nbsp;-&nbsp;
+    Todos los derechos reservados. Ovalle,Chile. {{ "now"|date("Y") }}
+    </small></h5>
+
+  </div>
+{% endblock %}

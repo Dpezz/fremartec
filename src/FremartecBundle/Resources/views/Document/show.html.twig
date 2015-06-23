@@ -1,0 +1,42 @@
+{% extends 'FremartecBundle:Layout:layout_dashboard.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+	<h2 class="page-header text-muted">
+		<i class="fa fa-file-o"></i>&nbsp;Editar Documento
+	</h2>
+	<form action="{{ path('edit_document',{'id':data.id}) }}" method="post"
+	ng-app="validate" ng-controller="form" name="userForm" novalidate ng-init="edit('{{ data.category }}','{{ data.title }}','{{ data.description }}')">
+
+		
+		<div class="form-group">
+			<label>Categoria</label>
+			<select class="form-control" name="category" ng-model="category" ng-options="category.name for category in categorys track by category.name" ng-change="change()" required autofocus>
+				<option value="">-- Categoria --</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label>Título</label>
+			<select class="form-control" name="title" ng-model="title" ng-options="title for title in titles track by title" ng-init="edit('{{ data.category }}','{{ data.title }}')" required autofocus>
+				<option value="">-- Título --</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label>Descripción</label>
+			<textarea class="form-control" name="description" placeholder="Descripción..">{{data.description}}</textarea>			
+		</div>
+
+		<div class="modal-footer">
+			<a href="{{ path('documents') }}" class="btn btn-default" type="button"><i class="fa fa-long-arrow-left"></i>&nbsp;Volver</a>
+			<button class="btn btn-primary" type="submit" ng-disabled="userForm.$invalid"><i class="fa fa-save"></i>&nbsp;Guardar</button>
+		</div>
+	</form>
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script src="{{ asset('bundles/fremartec/dist/angular/document_controller.js') }}"></script>
+{% endblock %}

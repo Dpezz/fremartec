@@ -1,0 +1,83 @@
+{% extends 'FremartecBundle:Layout:layout_dashboard.html.twig' %}
+
+{% block title %}Documentos{% endblock %}
+
+{% block content %}
+<section ng-app="validate" ng-controller="form">
+	<h2 class="page-header text-muted">
+		<i class="fa fa-file-o"></i>&nbsp;Documentos
+	</h2>
+
+	{% if flag == 1 %}
+		<div class="alert alert-success" role="alert">
+		  	<a href="#" class="alert-link">...</a>
+		</div>
+	{% elseif flag == -1 %}
+		<div class="alert alert-danger" role="alert">
+		  	<a href="#" class="alert-link">...</a>
+		</div>
+	{% endif %}
+
+
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Título</th>
+				<th>Categoría</th>
+				<th>Size</th>
+				<th>Fecha</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in data %}
+			<tr>
+				<td><span class="badge">{{loop.index}}</span></td>
+				<td>{{ item.title }}</td>
+				<td>{{ item.category }}</td>
+				<td>{{ (item.size / 1000)|number_format(0) }}&nbsp;kb</td>
+				<td>{{ item.createat|date('d/m/y') }}</td>
+				<td>
+					<a href="{{ path('show_document',{'id':item.id}) }}"><i class="glyphicon glyphicon-edit text-info"></i></a>&nbsp;
+					<a href="{{ path('download_document',{'id':item.id}) }}"><i class="glyphicon glyphicon-download-alt text-success"></i></a>&nbsp;
+					<a href="#" ng-click="delete('{{item.id}}','{{item.title}}')" data-toggle="modal" data-target="#delete" title="eliminar"><i class="glyphicon glyphicon-trash text-danger"></i></a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<div class="modal-footer">
+		<a href="{{ path('new_document') }}" class="btn btn-primary" type="button"><i class="fa fa-plus"></i>&nbsp;Nuevo</a>
+	</div>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  	<div class="modal-dialog">
+	    	<div class="modal-content">
+		      	<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        	<h4 class="modal-title" id="myModalLabel"><i class="fa fa-trash"></i>&nbsp;{[{ title }]}</h4>
+		      	</div>
+		      	<div class="modal-body">
+			      	<form>
+			      		<h5 class="text-center">¿Seguro que desea eliminar a <strong class="text-info">{[{ name }]}</strong> de Alumnos?</h5>
+
+			      		<div class="modal-footer">
+			        		<a type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-remove"></i>&nbsp;Cerrar</a>
+			        		<button class="btn btn-primary" ng-click="save()"><i class="fa fa-trash"></i>&nbsp;Eliminar</button>
+			      		</div>
+		      		</form>
+	    		</div>
+	  		</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+    <script src="{{ asset('bundles/fremartec/dist/angular/document_controller.js') }}"></script>
+{% endblock %}

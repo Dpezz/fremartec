@@ -1,0 +1,95 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Bienvenido{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <!-- Ionicons 2.0.0 -->
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
+    <link href="{{ asset('bundles/fremartec/dist/sidebar/sidebar.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/fremartec/dist/sidebar/style.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+
+<div class="navbar navbar-static navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+	  	<div class="navbar-header">
+		    <button type="button" class="navbar-toggle toggle-left hidden-md hidden-lg" data-toggle="sidebar" data-target=".sidebar-left">
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="#">&emsp;<i class="fa fa-medium"></i> Fremartec &emsp;<i class="fa fa-diamond"></i></a>
+	  	</div>
+
+	  	{#
+	  	<button type="button" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">
+	      	<span class="icon-bar"></span>
+	      	<span class="icon-bar"></span>
+	      	<span class="icon-bar"></span>
+	    </button>
+	  	#}
+	    
+      	<ul class="nav navbar-nav navbar-right hidden-xs">
+        	<li><a data-toggle="sidebar" data-target=".sidebar-right" style="cursor:pointer"><i class="fa fa-bell-o"></i></a></li>
+	        <li class="dropdown active">
+	          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> {{ app.user.username|capitalize }} <span class="caret"></span></a>
+	          	<ul class="dropdown-menu">
+		            <li><a href="#">Perfil</a></li>
+		            <li><a href="#">Another action</a></li>
+		            <li><a href="#">Something else here</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out"></i>&nbsp;Cerrar</a></li>
+	          	</ul>
+	        </li>
+	        <li><a></a></li>
+      	</ul>
+      	<form class="navbar-form navbar-right hidden-xs" role="search">
+      		<div class="input-group">
+      			<input type="text" class="form-control" placeholder="Search...">
+		      	<span class="input-group-btn">
+		        	<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+		      	</span>
+		    </div><!-- /input-group -->
+      	</form>
+	</div>
+</div>
+
+<!-- Begin page content -->
+<div class="container">
+	<div class="row">
+	  	<div class="col-xs-7 col-sm-3 col-md-2 sidebar sidebar-left sidebar-animate sidebar-md-show">
+		  	<ul class="nav navmenu-nav">
+	          	<li>
+	                <a id="collapseListGroupHeading1" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1"><i class="fa fa-file"></i>&nbsp;Documentos&nbsp;<i class="fa fa-caret-down"></i>
+	                </a>
+	                <div id="collapseListGroup1" class="in" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="true">
+	                  	<ul class="nav navmenu-nav">
+	                      	<li><a href="{{ path('new_document') }}">&emsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;Nuevo</a></li>
+	                      	<li class="active"><a href="{{ path('documents') }}">&emsp;&nbsp;<i class="fa fa-file"></i>&nbsp;Todos</a></li>
+	                  	</ul>
+	                </div>
+	          	</li>
+	      	</ul>
+	  	</div>
+	  	<div class="main col-md-10 col-md-offset-2">
+	        {% block content %}{% endblock %}
+	  	</div>
+	  	<div class="col-xs-7 col-sm-3 col-md-2 sidebar sidebar-right sidebar-animate">
+	        <ul class="nav navbar-stacked">
+	          	<li class="active"><a href="#">Home</a></li>
+	          	<li><a href="#about">About</a></li>
+	          	<li><a href="#contact">Contact</a></li>
+	        </ul>
+	  	</div>
+	</div>
+</div>
+{% endblock %}
+
+
+{% block javascripts %}
+    {{parent()}}
+    <script src="{{ asset('bundles/fremartec/dist/sidebar/sidebar.js') }}"></script>
+    <script src="{{ asset('bundles/fremartec/dist/angular/document_controller.js') }}"></script>
+{% endblock %}

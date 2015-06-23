@@ -1,0 +1,2 @@
+fremartec:
+    resource: "@FremartecBundle/Resources/config/routing.yml"

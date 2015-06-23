@@ -1,0 +1,11 @@
+_page:
+    resource: "@FremartecBundle/Controller/PageController.php"
+    type:     annotation
+
+_documents:
+    resource: "@FremartecBundle/Controller/DocumentController.php"
+    type:     annotation
+
+_account:
+    resource: "@FremartecBundle/Controller/AccountController.php"
+    type:     annotation
