@@ -5,27 +5,39 @@
 {% block stylesheets %}
 	{{parent()}}
   <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/cover/cover.css') }}">
+  <style type="text/css">
+    .navbar-default {
+        background-color: #8DC046;
+        opacity: 0.9
+    }
+  </style>
 {% endblock %}
 
+{% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logo2.png') }}" width="120px">{% endblock %}
+
 {% block menu %}
-  <li><a href="#two">Hidraulica</a></li>
-  <li><a href="#three">Bombas</a></li>
-  <li><a href="#four">Riego</a></li>
+  <li id="menu-two"><a href="#two">Hidraulica</a></li>
+  <li id="menu-three"><a href="#three">Bombas</a></li>
+  <li id="menu-four"><a href="#five">Contacto</a></li>
 {% endblock %}
+
+{% block iconmenu %}
+  <li><a href="{{ path('ingenieria') }}"><i class="glyphicon glyphicon-stop text-ingenieria"></i></a></li>
+  <li><a href="{{ path('consultora') }}"><i class="glyphicon glyphicon-stop text-consultora"></i></a></li>
+  <li><a href="{{ path('home') }}"><i class="glyphicon glyphicon-home"></i></a></li>
+{% endblock %}
+
 
 {% block content %}
 
 {# item 1 #}
-<div class="site-wrapper" style="background-color:#FE939D">
+<div id="one" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg4.jpg') }}')">
     <div class="site-wrapper-inner">
         <div class="cover-container"> 
 
         	<div class="inner cover">
-          	<h1>Comercial.</h1>
-          	<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-          	<p class="lead">
-            		<a href="" class="btn btn-lg btn-default"><i class="fa fa-heart"></i>&nbsp;Sign In</a>
-          	</p>
+          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logo2.png') }}"></h1>
+            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
         	</div>
           
         </div>
@@ -67,65 +79,58 @@
 </div>
 
 {# item 3 #}
-<div id="three" class="site-wrapper" style="background-color:#fff">
-  <div class="site-wrapper-inner">
-    <div class="cover-container"> 
-
-      <div class="inner cover">
-        <h1 class="page-header text-right text-info">Title number Three</h1>
-        <div class="row">
-          <div class="col-md-5">
-            <img class="img-rounded" width="90%" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=">
-          </div>
-          <div class="col-md-7">
-            <h1 class="text-info">Lorem ipsum dolor sit amet,<small>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small></h1>  
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div ng-app="validate" ng-controller="form">
-{# item 4 #}
-<div id="four" class="site-wrapper" style="background-color:#fff" >
+<div id="three" class="site-wrapper" style="background-color:#fff;color:#000" >
   <div class="site-wrapper-inner">
     <div class="cover-container"> 
 
       <div class="inner cover">
         <h1 class="page-header text-left text-info">Title number Four</h1>
-        <div class="row">
-          <div class="col-md-5">
-            <img class="img-rounded" width="90%" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=">
-          </div>
-          <div class="col-md-7">
+
           {% set url = path(app.request.attributes.get('_route'))|trim('/') %}
-            <h1 class="text-info">Lorem ipsum dolor sit amet,<small>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small></h1>
-            <a href="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#download" title="download" ng-click="download('primero','comercial')" ><i class="fa fa-download"></i>&nbsp;Descargar</a>
-            <a href="" type="button" class="btn btn-primary" data-toggle="modal" data-target="#download" title="download" ng-click="download('primero','comercial')" ><i class="fa fa-download"></i>&nbsp;Descargar</a>
-
-
-          </div>
-        </div>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>titulo</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for i in 1..10 %}
+              <tr>
+                <td><span class="badge">{{i}}</span></td>
+                <td>titulo_{{i}}</td>
+                <td><a href="" class="text-muted" data-toggle="modal" data-target="#download" title="download" ng-click="download('primero','comercial')"><i class="fa fa-download text-success"></i>&nbsp;Descargar</a></td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
       </div>
 
     </div>
   </div>
 </div>
 
+{# item 4 #}
+<div id="four" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg3.jpg') }}')">
+  <div class="site-wrapper-inner">
+    <div class="cover-container" > 
 
-{# footer #}
-<div class="container">
-  <hr>
-  <footer>
-    <h6 class="text-center text-muted">
-      (+569) 81791226  -   contacto@pagescolar.cl
-      Pedro Pablo Muñoz #250, La Serena, Chile - 2015</h6>
-  </footer>
+      <div class="inner cover">
+        <div class="jumbotron" style="background-color:#fff">
+          <img src="{{ asset('bundles/fremartec/dist/images/mapa.png') }}" class="rounded" width="100%">
+          
+          <h4 class="text-comercial"><i class="fa fa-phone fa-lg"></i>&nbsp;053 2 634104 - 053 2 626145</h4>
+          <h4 class="text-comercial"><i class="fa fa-envelope fa-lg"></i>&nbsp; <a class="text-info" href="">ventas@fremartec.cl</a></h4>
+          <h4 class="text-comercial"><i class="fa fa-home fa-lg"></i>&nbsp;Avda David Perry Nº 45 - Ovalle</h4>
+          <br><br>
+        </div>
+        
+      </div>
+
+    </div>
+  </div>
 </div>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="download" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -154,5 +159,4 @@
   </div>
 </div>
 
-</div>
 {% endblock %}

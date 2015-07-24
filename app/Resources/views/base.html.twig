@@ -15,14 +15,17 @@
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
-    <body>
+    <body ng-app="validate" ng-controller="form">
         {% block body %}{% endblock %}
         
         {% block javascripts %}
             <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
             <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+            {# controller document #}
+            <script src="{{ asset('bundles/fremartec/dist/angular/document_controller.js') }}"></script>
             <!-- Latest compiled and minified JavaScript -->
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+            
         {% endblock %}
     </body>
 </html>

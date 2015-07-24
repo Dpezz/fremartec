@@ -13,35 +13,51 @@
 		        	<span class="icon-bar"></span>
 		        	<span class="icon-bar"></span>
 		      	</button>
-		      	<a class="navbar-brand" href="#">Fremartec</a>
+		      	<a class="navbar-brand" href="{{ path('home') }}">{% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logo1.png') }}" width="120px">{% endblock %}</a>
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
-			        <li><a></a></li>
-			        <li><a></a></li>
-			        <li><a></a></li>
-			        <li class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
+			        <li class="visible-lg"><a></a></li>
+			        <li class="visible-lg"><a></a></li>
+			        <li id="menu-one" class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
 			        {% block menu %}{% endblock %}
-			        <li><a href="{{ path('contacto') }}">Contacto</a></li>
 		      	</ul>
 		      	
 		      	<ul class="nav navbar-nav navbar-right">
+		      	{% block iconmenu %}
+	      		  	<li><a href="{{ path('comercial') }}"><i class="glyphicon glyphicon-stop text-comercial"></i></a></li>
+	      		  	<li><a href="{{ path('ingenieria') }}"><i class="glyphicon glyphicon-stop text-ingenieria"></i></a></li>
+				 	<li><a href="{{ path('consultora') }}"><i class="glyphicon glyphicon-stop text-consultora"></i></a></li>
+
+		      		{#
 		        	<li><a href="{{ path('home') }}"><i class="glyphicon glyphicon-home"></i></a></li>
 		        	<li><a href="#"><i class="glyphicon glyphicon-envelope"></i></a></li>
 		        	<li><a href="{{ path('login') }}"><i class="glyphicon glyphicon-log-in"></i></a></li>
+		        	#}
+		        {% endblock %}
 		      	</ul>
 		    </div><!-- /.navbar-collapse -->
 	  	</div><!-- /.container-fluid -->
 	</nav>
 	{% block content %}{% endblock %}
+	{% block navbar_bottom %}{% endblock %}
+	{% block footer %}
+		<div class="container">
+		  	<hr>
+		  	<footer>
+		    	<h6 class="text-center text-muted">
+			      (053) 2 634104 - (053) 2 626145  -  ventas@fremartec.cl
+			      Avda David Perry Nº 45 - Ovalle, Chile - {{'now'|date('Y')}}</h6>
+		  	</footer>
+		</div>{% endblock %}
+	
 {% endblock %}
 
 {% block javascripts %}
     {{parent()}}
-    <script src="{{ asset('bundles/fremartec/dist/angular/document_controller.js') }}"></script>
-
+    <script src="{{ asset('bundles/fremartec/dist/menu/menu.js') }}"></script>
 	<!--Start of Zopim Live Chat Script-->
 	<script type="text/javascript">
 	window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=

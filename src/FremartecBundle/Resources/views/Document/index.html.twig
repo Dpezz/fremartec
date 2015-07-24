@@ -3,7 +3,7 @@
 {% block title %}Documentos{% endblock %}
 
 {% block content %}
-<section ng-app="validate" ng-controller="form">
+
 	<h2 class="page-header text-muted">
 		<i class="fa fa-file-o"></i>&nbsp;Documentos
 	</h2>
@@ -74,10 +74,5 @@
 	  		</div>
 		</div>
 	</div>
-</section>
-{% endblock %}
 
-{% block javascripts %}
-    {{parent()}}
-    <script src="{{ asset('bundles/fremartec/dist/angular/document_controller.js') }}"></script>
 {% endblock %}

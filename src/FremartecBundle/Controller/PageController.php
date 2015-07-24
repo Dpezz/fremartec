@@ -58,15 +58,6 @@ class PageController extends Controller
         return array();
     }
 
-	/**
-     * @Route("/contacto", name="contacto")
-     * @Method("GET")
-     * @Template()
-     */
-    public function contactoAction()
-    {
-        return array();
-    }
 
     /**
      * @Route("/email")
