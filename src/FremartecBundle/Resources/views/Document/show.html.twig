@@ -1,42 +1,44 @@
 {% extends 'FremartecBundle:Layout:layout_dashboard.html.twig' %}
 
-{% block title %}Admin{% endblock %}
+{% block title "Nuevo Documento"%}
+
+{% block menu_admin_documentos %}class="active"{% endblock %}
 
 {% block content %}
-	<h2 class="page-header text-muted">
-		<i class="fa fa-file-o"></i>&nbsp;Editar Documento
-	</h2>
-	<form action="{{ path('edit_document',{'id':data.id}) }}" method="post"
-	ng-app="validate" ng-controller="form" name="userForm" novalidate ng-init="edit('{{ data.category }}','{{ data.title }}','{{ data.description }}')">
+    <h1>Documento</h1>
 
-		
-		<div class="form-group">
-			<label>Categoria</label>
-			<select class="form-control" name="category" ng-model="category" ng-options="category.name for category in categorys track by category.name" ng-change="change()" required autofocus>
-				<option value="">-- Categoria --</option>
-			</select>
-		</div>
+    <table class="table table-hover">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ entity.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ entity.description }}</td>
+            </tr>
+            <tr>
+                <th>Createat</th>
+                <td>{{ entity.createAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
 
-		<div class="form-group">
-			<label>Título</label>
-			<select class="form-control" name="title" ng-model="title" ng-options="title for title in titles track by title" ng-init="edit('{{ data.category }}','{{ data.title }}')" required autofocus>
-				<option value="">-- Título --</option>
-			</select>
-		</div>
-
-		<div class="form-group">
-			<label>Descripción</label>
-			<textarea class="form-control" name="description" placeholder="Descripción..">{{data.description}}</textarea>			
-		</div>
-
-		<div class="modal-footer">
-			<a href="{{ path('documents') }}" class="btn btn-default" type="button"><i class="fa fa-long-arrow-left"></i>&nbsp;Volver</a>
-			<button class="btn btn-primary" type="submit" ng-disabled="userForm.$invalid"><i class="fa fa-save"></i>&nbsp;Guardar</button>
-		</div>
-	</form>
-{% endblock %}
-
-{% block javascripts %}
-    {{parent()}}
-    <script src="{{ asset('bundles/fremartec/dist/angular/document_controller.js') }}"></script>
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('document') }}">
+                Back to the list
+            </a>
+        </li>
+        <li>
+            <a href="{{ path('document_edit', { 'id': entity.id }) }}">
+                Edit
+            </a>
+        </li>
+        <li>{{ form(delete_form) }}</li>
+    </ul>
 {% endblock %}

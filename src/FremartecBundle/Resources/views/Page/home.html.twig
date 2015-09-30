@@ -9,221 +9,214 @@
 {% endblock %}
 
 {% block menu %}
-  <li id="menu-two"><a href="#two">Nuestra Empresa</a></li>
-  <li id="menu-three"><a href="#three">Áreas de Negocio</a></li>
-  <li id="menu-four"><a href="#four">Medio Ambiente</a></li>
-  <li id="menu-five"><a href="#five">Contacto</a></li>
+  <li id="menu-two"><a href="" onclick="$('#two').animatescroll();">Nuestra Empresa</a></li>
+  <li id="menu-three"><a href="" onclick="$('#three').animatescroll();">Áreas de Negocio</a></li>
+  <li id="menu-four"><a href="" onclick="$('#four').animatescroll();">Medio Ambiente</a></li>
+  <li id="menu-five"><a href="" onclick="$('#five').animatescroll();">Contacto</a></li>
 {% endblock %}
 
 {% block content %}
 {# item 1 #}
-<div id="one" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}')">
+<div id="one" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/home/bg.jpg') }}');background-size:100% 100%">
     <div class="site-wrapper-inner">
-        <div class="cover-container"> 
-
+        <div class="cover-container">
         	<div class="inner cover">
-          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logo1.png') }}"></h1>
-          	<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
-        	</div>
-          
+
+          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo.png') }}"></h1>
+          	<p class="lead">Queremos presentar nuestro nuevo sitio y nuestras nuevas áreas de negocio, pensadas para entregar una nueva experiencia de servicios a nuestros clientes, y que juntos desarrollemos un proyecto de excelencia a las medidas de sus necesidades.</p>
+            <p>
+              <a href="" onclick="$('#two').animatescroll();"><i class="fa fa-angle-double-down fa-3x"></i></a>
+            </p>
+          </div>
         </div>
     </div>
 </div>
+
 
 {# item 2 #}
-<div id="two" class="site-wrapper" style="background-color:#fff">
-  <div class="site-wrapper-inner">
-    <div class="cover-container"> 
+<div id="two" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}')">
+  <div class="container" style="background-color: rgba(255, 255, 255, 0.6)">
+      <img id="img-rotate" src="{{ asset('bundles/fremartec/dist/images/home/about/image_1.png') }}" width="100%">
 
-      <div class="inner cover">
-        <div class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/about1.jpeg') }}'); height:200px">
-        </div>
+      <div class="container-sm">
+        <img src="{{ asset('bundles/fremartec/dist/images/home/about/hr.png') }}" width="100%">
 
-        <h3 class="page-header text-center text-info">Nuestro principal desafío es optimizar al máximo el recurso agua, porque sabemos que más agua significa más vida.</h3>
+        <h4 class="text-center text-info"><strong>Nuestro principal desafío es optimizar al máximo el recurso agua, porque sabemos que más agua significa más vida.</strong></h4>
+
+        <img src="{{ asset('bundles/fremartec/dist/images/home/about/hr.png') }}" width="100%">
 
         <div class="row">
+
           <div class="col-md-7">
-            <h3 class="text-info text-left">Nuestra Empresa</h3>
-            <h4 class="text-muted text-left">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no seaest Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua, ugo consetetur Lorem Ipsum..</h4> 
+            <h3 class="text-info text-left"><strong>Nuestra Empresa</strong></h3>
+            <h4 class="text-muted text-left">Empresas Fremartec nace el año 2005 realizando proyectos de riego tecnificado instalaciones de geomembranas, termofusión en tuberías de HDPE, para tranques agrícolas, además de consultorías y asesorías ligadas a la temática del uso de los geosintéticos y plásticos en el área agrícola, minera e industrial.
+            Junto a ello, contando con los insumos, los profesionales adecuados y la experiencia ganada en todos los proyectos adjudicados, podemos afirmar que estamos capacitados para desarrollar su proyecto de forma integral.</h4>
+            <br>
           </div>
+
           <div class="col-md-5">
             <br><br><br>
-            <img src="{{ asset('bundles/fremartec/dist/images/icono_agua.png') }}">
+            <img src="{{ asset('bundles/fremartec/dist/images/icons/icono_agua.png') }}">
             <br><br>
-            <button class="btn btn-primary"><i class="fa fa-download fa-lg"></i>&nbsp;Curriculum Fremartec</button>
+            <button class="btn btn-primary btn-lg btn-block"><i class="fa fa-download fa-lg"></i>&nbsp;Curriculum Fremartec</button>
+            <button class="btn btn-success btn-lg btn-block"><i class="fa fa-eye fa-lg"></i>&nbsp;Ver Curriculum Online</button>
+            <br><br><br>
           </div>
+
         </div>
       </div>
-
-    </div>
   </div>
+  <br>
 </div>
+
 
 {# item 3 #}
-<div id="three" class="site-wrapper" style="background-color:#fff">
-
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <h1 class="page-header text-left text-info">Title number Two</h1>
-
-      <div class="row">
-
-        <div class="col-md-4 unite">
-          <div class="flip">
-            <div class="card"> 
-              <div class="face front"> 
-                <div class="inner" id="area1">
-                  <div class="caption">
-                    <img src="{{ asset('bundles/fremartec/dist/images/logo2.png') }}">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                    <p>
-                      <a href="" class="hidden">Ver mas</a>
-                    </p>
-                  </div>
-                </div>
-              </div> 
-              <div class="face back"> 
-                <div class="inner" id="back1">
-                  <div class="caption">
-                    <img src="{{ asset('bundles/fremartec/dist/images/logo2.png') }}">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                    <p>
-                      <a href="{{ path('comercial') }}" class="btn btn-default">Ver mas</a>
-                    </p>
-                  </div>
+<div id="three" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}')">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 unite">
+        <div class="flip">
+          <div class="card">
+            <div class="face front">
+              <div class="inner" id="area1">
+              </div>
+            </div>
+            <div class="face back">
+              <div class="inner" id="back1">
+                <div class="caption">
+                  <p>Fremartec Comercial, es el área dedicada a la comercialización de insumos de riego, geomembranas y bombas.</p>
+                  <p>
+                    <a href="{{ path('comercial') }}" class="btn btn-default">Ver mas</a>
+                  </p>
                 </div>
               </div>
-            </div>   
-          </div>
-        </div>
-
-        <div class="col-md-4 unite">
-          <div class="flip">
-            <div class="card"> 
-              <div class="face front"> 
-                <div class="inner" id="area2">
-                  <div class="caption">
-                    <img src="{{ asset('bundles/fremartec/dist/images/logo3.png') }}">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                    <p>
-                      <a href="" class="hidden">Ver mas</a>
-                    </p>
-                  </div>
-                </div>
-              </div> 
-              <div class="face back"> 
-                <div class="inner" id="back2">
-                  <div class="caption">
-                    <img src="{{ asset('bundles/fremartec/dist/images/logo3.png') }}">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                    <p>
-                      <a href="{{ path('ingenieria') }}" class="btn btn-default">Ver mas</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>   
-          </div>
-        </div>
-
-        <div class="col-md-4 unite">
-          <div class="flip">
-            <div class="card"> 
-              <div class="face front"> 
-                <div class="inner" id="area3">
-                  <div class="caption">
-                    <img src="{{ asset('bundles/fremartec/dist/images/logo1.png') }}">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                    <p>
-                      <a href="" class="hidden">Ver mas</a>
-                    </p>
-                  </div>
-                </div>
-              </div> 
-              <div class="face back"> 
-                <div class="inner" id="back3">
-                  <div class="caption">
-                    <img src="{{ asset('bundles/fremartec/dist/images/logo1.png') }}">
-                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
-                    <p>
-                      <a href="{{ path('consultora') }}" class="btn btn-default">Ver mas</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>   
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-{# item 4 #}
-<div id="four" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg3.jpg') }}')">
-  <div class="site-wrapper-inner">
-    <div class="cover-container" > 
-
-      <div class="inner cover">
-        <div class="jumbotron">
-          <img src="{{ asset('bundles/fremartec/dist/images/text-agua.png') }}" width="40%">
-          <br><br>
-          <div style="background-color:#114389;padding:40px">
-            <h3>Medio Ambiente</h3>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-4">
-                  <img src="{{ asset('bundles/fremartec/dist/images/icono-agua.png') }}">
-                </div>
-                <div class="col-md-8">
-                  <h4 class="text-left">Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet,consectetur adipiscing elit.Lorem ipsum dolor sit amet,consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet,consectetur adipiscing elit.</h4>
-                </div>
-              </div>
-              
             </div>
           </div>
         </div>
       </div>
 
-    </div>
-  </div>
-</div>
-
-{# item 5 #}
-<div id="five" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg3.jpg') }}')">
-  <div class="site-wrapper-inner">
-    <div class="cover-container" > 
-
-      <div class="inner cover">
-        <div class="jumbotron" style="background-color:#fff">
-          <img src="{{ asset('bundles/fremartec/dist/images/mapa.png') }}" class="rounded" width="100%">
-          
-          <h4 class="text-primary"><i class="fa fa-phone fa-lg"></i>&nbsp;053 2 634104 - 053 2 626145</h4>
-          <h4 class="text-primary"><i class="fa fa-envelope fa-lg"></i>&nbsp; <a class="text-info" href="">ventas@fremartec.cl</a></h4>
-          <h4 class="text-primary"><i class="fa fa-home fa-lg"></i>&nbsp;Avda David Perry Nº 45 - Ovalle</h4>
-          <br><br>
+      <div class="col-md-4 unite">
+        <div class="flip">
+          <div class="card">
+            <div class="face front">
+              <div class="inner" id="area2">
+              </div>
+            </div>
+            <div class="face back">
+              <div class="inner" id="back2">
+                <div class="caption">
+                  <p>Fremartec Ingeniería, está compuesto por un diverso equipo de profesionales comprometidos con entregar un trabajo de calidad.</p>
+                  <p>
+                    <a href="{{ path('ingenieria') }}" class="btn btn-default">Ver mas</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        
       </div>
 
+      <div class="col-md-4 unite">
+        <div class="flip">
+          <div class="card">
+            <div class="face front">
+              <div class="inner" id="area3">
+              </div>
+            </div>
+            <div class="face back">
+              <div class="inner" id="back3">
+                <div class="caption">
+                  <p>Nuestra consultora nace a raíz de la busqueda de programas de cooperación técnica, programas de innovación en materia de riego y cuidado del agua.</p>
+                  <p>
+                    <a href="{{ path('consultora') }}" class="btn btn-default">Ver mas</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
+
+{# item 4 #}
+<div id="four" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/home/ambient/bg.jpg') }}')">
+  <div class="container">
+    <div style="background-color: rgba(255, 255, 255, 0.78)">
+      <br>
+      <br>
+      <img src="{{ asset('bundles/fremartec/dist/images/home/ambient/text.png') }}" width="35%">
+      <br>
+      <br>
+    </div>
+
+    <div>
+        <img src="{{ asset('bundles/fremartec/dist/images/home/ambient/bg_2.png') }}" width="100%">
+    </div>
+
+    <div style="background-color: rgba(24, 66, 137, 1)">
+      <div class="container" style="padding-top: 5px; padding-bottom:10px">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="{{ asset('bundles/fremartec/dist/images/icons/icono-agua.png') }}" style="padding-top:27%">
+          </div>
+          <div class="col-md-6">
+            <h3 class="text-left">Medio Ambiente</h3>
+            <h4 class="text-left">
+							Nuestro gran compromiso en materia medioambiental es el cuidado del agua,
+							optimizar su uso y evitar perdidas, para eso proyectamos y diseñamos sistemas
+							eficientes, que permiten un manejo responsable de nuestro bien más preciado.<br>
+							Nosotros como empresa somos conscientes de que más agua significa más vida,
+							por ello nos comprometemos y enfocamos nuestro esfuerzo técnico y profesional
+							en mejorar cada día a fin de resguardar de mejor forma el líquido vital.
+						</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+        <img src="{{ asset('bundles/fremartec/dist/images/home/ambient/bg_3.jpg') }}" width="100%">
+    </div>
+  </div>
+</div>
+
+
+{# item 5 #}
+<div id="five" class="jumbotron">
+  <div style="background-image:url('{{ asset('bundles/fremartec/dist/images/home/contact.jpg') }}')">
+    <div class="container">
+      <img src="{{ asset('bundles/fremartec/dist/images/map.jpg') }}" width="90%" style="padding: 10% 0 5% 0">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-4">
+        <h4 class="text-left text-primary"><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;&emsp;053 2 634104 - 053 2 626145</h4>
+
+        <h4 class="text-left text-primary"><i class="fa fa-envelope fa-lg"></i>&nbsp;&nbsp;&emsp;<a href="" class="text-info">ventas@fremartec.cl</a></h4>
+
+        <h4 class="text-left text-primary"><i class="fa fa-home fa-lg"></i>&nbsp;&nbsp;&emsp;Avda David Perry Nº 45 - Ovalle</h4>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
+
 
 {% block navbar_bottom %}
 <nav class="navbar navbar-default-bottom navbar-fixed-bottom">
   <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
   <div class="container">
     <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7" aria-expanded="false" style="float:left">
           <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+          <span class="icon-bar" style="background-color: #000;"></span>
+          <span class="icon-bar" style="background-color: #000;"></span>
+          <span class="icon-bar" style="background-color: #000;"></span>
         </button>
     </div>
 
@@ -247,6 +240,22 @@
 {% block javascripts %}
   {{ parent() }}
   <script src="{{ asset('bundles/fremartec/dist/flip/flip.js') }}"></script>
-  {#<script src="{{ asset('bundles/fremartec/dist/angular/indicadores_controller.js') }}"></script>#}
-</script>
+
+  <script type="text/javascript">
+    var cont = 1;
+    function contador(){
+      cont++;
+
+      if (cont == 6)
+        cont = 1
+
+      var url = "{{ asset('bundles/fremartec/dist/images/home/about/image_contador.png') }}"
+      var url_new = url.replace("contador", cont)
+
+      $('#img-rotate').attr('src',url_new);
+    }
+
+    setInterval('contador()',5000);
+  </script>
+
 {% endblock %}

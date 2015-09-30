@@ -6,7 +6,7 @@
 	{{parent()}}
   <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/cover/cover.css') }}">
   <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/flip/flip.css') }}">
-    <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/carousel/carousel.css') }}">
+  <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/carousel/carousel.css') }}">
   <style type="text/css">
     .navbar-default {
         background-color: #259952;
@@ -15,95 +15,74 @@
   </style>
 {% endblock %}
 
-{% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logo3.png') }}" width="120px">{% endblock %}
+{% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logos/logo3.png') }}" width="120px">{% endblock %}
 
 {% block menu %}
-  <li id="menu-two"><a href="#two">Areas</a></li>
-  <li id="menu-three"><a href="#myCarousel">Informacion</a></li>
-  <li id="menu-four"><a href="#three">Atributos</a></li>
-  <li id="menu-five"><a href="#four">Causa</a></li>
-  <li id="menu-six"><a href="#five">Contacto</a></li>
+  <li id="menu-two"><a href="" onclick="$('#two').animatescroll();">Áreas de Servicio</a></li>
+  <li id="menu-three"><a href="" onclick="$('#three').animatescroll();">Obras</a></li>
+  <li id="menu-four"><a href="" onclick="$('#four').animatescroll();">Manuales</a></li>
+  <li id="menu-five"><a href="" onclick="$('#five').animatescroll();">Contacto</a></li>
 {% endblock %}
 
 {% block iconmenu %}
-  <li><a href="{{ path('comercial') }}"><i class="glyphicon glyphicon-stop text-comercial"></i></a></li>
-  <li><a href="{{ path('consultora') }}"><i class="glyphicon glyphicon-stop text-consultora"></i></a></li>
-  <li><a href="{{ path('home') }}"><i class="glyphicon glyphicon-home"></i></a></li>
+		<li><a href="{{ path('comercial') }}" data-toggle="tooltip" title="Comercial"><img src="{{asset('bundles/fremartec/dist/images/icons/ico1.png')}}" width="20x"></a></li>
+		<li><a href="{{ path('consultora') }}" data-toggle="tooltip" data-placement="bottom" title="Consultora"><img src="{{asset('bundles/fremartec/dist/images/icons/ico3.png')}}" width="20x"></a></li>
+	  <li><a href="{{ path('home') }}" data-toggle="tooltip" data-placement="bottom" title="Inicio"><i class="glyphicon glyphicon-home"></i></a></li>
 {% endblock %}
 
 {% block content %}
 {# item 1 #}
-<div id="one" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg5.jpg') }}')">
+<div id="one" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/ing/bg.jpg') }}');background-size:100% 100%">
     <div class="site-wrapper-inner">
-        <div class="cover-container"> 
+        <div class="cover-container">
 
         	<div class="inner cover">
-          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logo2.png') }}"></h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo-ingenieria.png') }}"></h1>
+            <p class="lead">
+							Fremartec Ingeniería cuenta con un gran equipo técnico y humano,
+							capacitado para los más grandes desafíos; Poseemos maquinaria de
+							última tecnología que nos permite responder con prontitud y calidad excepcional.
+							Los materiales utilizados son de primera línea, certificados y
+							testeados a través de años de experiencia.
+						</p>
+						<p>
+							<a href="#" onclick="$('#two').animatescroll();" class="btn btn-success btn-lg">Conoce Nuestros Servicios&nbsp;<i class="fa fa-angle-double-down fa-lg"></i></a>
+						</p>
         	</div>
-          
+
         </div>
     </div>
 </div>
 
 {# item 2 #}
-<div id="two" class="site-wrapper" style="background-color:#fff">
+<div id="two" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/ing/service/bg.jpg') }}')">
+  <div class="container">
 
-  <div class="site-wrapper-inner">
-    <div class="cover-container">
-      <h1 class="page-header text-left text-info">Title number Two</h1>
+    <div class="row">
+			<div class="bg-primary" style="padding:3px;background-color:#fff">
+				<h2 class="text-center text-info">Nuestros Servicios</h2>
+			</div>
+			<br>
+				<div class="col-md-3 unite-sm">
+          <div class="inner" id="area1-ingenieria"></div>
+					<h4><a href="#" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#areatwo">Agricultura</a></h4>
+			  </div>
 
-      <div class="row">
-        <div class="col-md-3 unite">
-          <div class="inner" id="area1">
-            <div class="caption">
-              <img src="{{ asset('bundles/fremartec/dist/images/logo2.png') }}">
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-              <p>
-                <a href="" class="btn btn-default" data-toggle="modal" data-target="#areaone">Ver mas</a>
-              </p>
-            </div>
-          </div>
+        <div class="col-md-3 unite-sm">
+          <div class="inner" id="area2-ingenieria"></div>
+					<h4><a href="#" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#areathree">Construcción</a></h4>
         </div>
 
-        <div class="col-md-3 unite">
-          <div class="inner" id="area2">
-            <div class="caption">
-              <img src="{{ asset('bundles/fremartec/dist/images/logo3.png') }}">
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-              <p>
-                <a href="" type="button" class="btn btn-default" data-toggle="modal" data-target="#areatwo">Ver mas</a>
-              </p>
-            </div>
-          </div>
-        </div> 
-             
-        <div class="col-md-3 unite">
-          <div class="inner" id="area3">
-            <div class="caption">
-              <img src="{{ asset('bundles/fremartec/dist/images/logo1.png') }}">
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-              <p>
-                <a href="" class="btn btn-default" data-toggle="modal" data-target="#areathree">Ver mas</a>
-              </p>
-            </div>
-          </div>
-        </div> 
-              
-        <div class="col-md-3 unite">
-          <div class="inner" id="area1">
-            <div class="caption">
-              <img src="{{ asset('bundles/fremartec/dist/images/logo2.png') }}">
-              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr.</p>
-              <p>
-                <a href="" class="btn btn-default" data-toggle="modal" data-target="#areafour">Ver mas</a>
-              </p>
-            </div>
-          </div>
-        </div> 
-      </div>
+        <div class="col-md-3 unite-sm">
+          <div class="inner" id="area3-ingenieria"></div>
+					<h4><a href="#" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#areaone">Minería</a></h4>
+        </div>
 
-    </div>
+        <div class="col-md-3 unite-sm">
+          <div class="inner" id="area4-ingenieria"></div>
+					<h4><a href="#" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#areafour">Sanitaria</a></h4>
+        </div>
+      </div>
   </div>
 </div>
 
@@ -111,34 +90,61 @@
 <div id="three" class="carousel slide">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#three" data-slide-to="0" class="active"></li>
-    <li data-target="#three" data-slide-to="1" class=""></li>
-    <li data-target="#three" data-slide-to="2" class=""></li>
+  	{% for i in 1..12 %}
+			{% if (i - 1) == 0 %}
+				<li data-target="#three" data-slide-to="{{ i - 1 }}" class="active"></li>
+			{% else %}
+				<li data-target="#three" data-slide-to="{{ i - 1 }}" class=""></li>
+			{% endif %}
+		{% endfor %}
   </ol>
 
   <!-- Wrapper for Slides -->
   <div class="carousel-inner">
-    <div class="item active">
-        <!-- Set the first background image using inline CSS below. -->
-        <div class="fill" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg3.jpg') }}');"></div>
-        <div class="carousel-caption">
-            <h2>Caption 1</h2>
-        </div>
-    </div>
-    <div class="item">
-        <!-- Set the second background image using inline CSS below. -->
-        <div class="fill" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg6.jpg') }}');"></div>
-        <div class="carousel-caption">
-            <h2>Caption 2</h2>
-        </div>
-    </div>
-    <div class="item">
-        <!-- Set the third background image using inline CSS below. -->
-        <div class="fill" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg2.jpg') }}');"></div>
-        <div class="carousel-caption">
-            <h2>Caption 3</h2>
-        </div>
-    </div>
+
+		{% set items = [
+			{"client":"Soc. Agrícola El Ciénago Ltda","title":"Ampliación y revestimiento estanque","address":"El Ciénago, Punitaqui","description":"Ampliación estanque de 16.520 mt3. Instalación geomembrana hdpe 1.00mm 5.825 mt2"},
+			{"client":"Agrícola Bauzá S.A","title":"Construcción y revestimiento estanque","address":"Varillar, Monte Patria","description":"Construcción estanque de 12.500 mt3 Instalación geomembrana hdpe 1.00mm 6.730 mt2"},
+			{"client":"Agrícola Don Arturo S.A","title":"Revestimiento de estanque","address":"El Reloj, Ovalle","description":"Instalación geomembrana hdpe 1.00mm 5.200 mt2"},
+			{"client":"Soc. Agrícola Alfonso Ltda","title":"Construcción y revestimiento estanque","address":"Chañaral Alto, Monte Patria","description":"Construcción estanque de 23.000 mt3 Instalación geomembrana hdpe 1.00mm 9.125 mt2"},
+			{"client":"Asoc. De Canalistas Palqui Maurat Semita","title":"Acondicionamiento y Revestimiento de estanque","address":"El Paqui, Monte Patria","description":"Acondicionamiento y limpieza de estanque de 27.000 mt3, Revestimiento con geomembrana Hdpe 1,00mm 16.825 mt2"},
+			{"client":"Agricola Canta Rana S.A","title":"Revestimiento estanque","address":"Nueva Aurora, Ovalle","description":"Revestimiento geomembrana de Hdpe 1,5mm 19.405 mt2"},
+			{"client":"María Gabriela Zepeda Gomila","title":"Construcción y Revestimiento de estanque","address":"Huallillinga, Ovalle","description":"Diseño y construcción estanque de 33.000 mt3, Revestimiento con geomembrana Hdpe 1,0mm 15.210 mt2"},
+			{"client":"Viña Concha y Toro S.A","title":"Revestimiento estanque","address":"Los Acacios, Monte Patria","description":"Revestimiento con geomembrana Hdpe de 1,00mm 11.925 mt2"},
+			{"client":"Minera HMC Gold S.M.C","title":"Pipping Planta de Flotación","address":"Punitaqui, Ovalle","description":"Montaje y termofusión pipping hdpe"},
+			{"client":"Junta de Vigilancia Rio Elqui","title":"Instalación tubería hdpe Canal Santa Ines","address":"San Ramón, La Serena","description":"Montaje y termofusión tubería hdpe 700mm"},
+			{"client":"Agricola Valle Verde S.A","title":"Revestimiento de estanque","address":"Recoleta, Ovalle","description":"Revestimiento con geotextil y geomembrana de Hdpe 9.620 mt2"},
+			{"client":"Junta de Vigilancia Rio Limari y sus afluentes","title":"Acondicionamiento y Revestimiento de canale","address":"Las Vegas de Limari, Ovalle","description":"Acondicionamiento y limpieza de canal de 4,5 km, Revestimiento con geomembrana de Hdpe 6510 mt2"},
+		] %}
+
+		{% for item in items %}
+			{% if loop.index == 1 %}
+    		<div class="item active">
+			{% else %}
+				<div class="item">
+			{% endif %}
+      	<div class="fill" style="background-image:url('{{ asset('bundles/fremartec/dist/images/ing/work/image_'~(loop.index)~'.jpg') }}');"></div>
+      		<div class="carousel-caption">
+						<div class="row">
+							<div class="col-md-6">
+								<div class="panel panel-default">
+									<div class="panel-body">
+										<img src="{{ asset('bundles/fremartec/dist/images/ing/panel/logo.png') }}" width="50%">
+										<img src="{{ asset('bundles/fremartec/dist/images/ing/panel/bg-curva.png') }}" width="100%">
+
+											<strong>Cliente:</strong>&nbsp;{{ item.client }}.<br>
+											<strong>Obra:</strong>&nbsp;{{ item.title }}.<br>
+											<strong>Ubicación:</strong>&nbsp;{{ item.address }}.<br>
+										  <strong>Descripción:</strong>&nbsp;{{ item.description }}.<br>
+
+										<img src="{{ asset('bundles/fremartec/dist/images/ing/panel/hr.png') }}" width="100%">
+								</div>
+							</div>
+						</div>
+					</div>
+	      </div>
+    	</div>
+		{% endfor %}
   </div>
 
   <!-- Controls -->
@@ -152,13 +158,23 @@
 
 
 {# item 4 #}
-<div id="four" class="site-wrapper" style="background-color:#fff;color:#000" >
-  <div class="site-wrapper-inner">
-    <div class="cover-container"> 
+<div id="four" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}')">
+    <div class="container" style="background-color: #fff">
+			<h4 class="text-center text-primary"><strong>Descargar Manuales</strong></h4>
+			<br>
+			<div class="container-sm">
+				<h4 class="text-muted">
+					En esta sección encontrarás manuales con información
+					para realizar diversos tipos de trabajos en diferentes escenarios,
+					que servirán para una correcta instalación de geomembranas de HDPE.
+				</h4>
+			</div>
 
-      <div class="inner cover">
-        <h1 class="page-header text-left text-info">Title number Four</h1>
+			<div>
+	        <img src="{{ asset('bundles/fremartec/dist/images/ing/download/bg-curva.png') }}" width="100%">
+	    </div>
 
+			<div class="container-sm" style="background-image:url('{{ asset('bundles/fremartec/dist/images/ing/download/bg.jpg') }}');background-size:100% 100%">
           {% set url = path(app.request.attributes.get('_route'))|trim('/') %}
           <table class="table table-hover">
             <thead>
@@ -171,77 +187,65 @@
             <tbody>
               {% for i in 1..10 %}
               <tr>
-                <td><span class="badge">{{i}}</span></td>
-                <td>titulo_{{i}}</td>
-                <td><a href="" class="text-muted" data-toggle="modal" data-target="#download" title="download" ng-click="download('primero','comercial')"><i class="fa fa-download text-success"></i>&nbsp;Descargar</a></td>
+                <td><span class="badge btn-success" style="background-color:#a0b620">{{i}}</span></td>
+                <td><strong class="label label-default">titulo_{{i}}</strong></td>
+                <td><a href="" class="btn btn-success text-muted" data-toggle="modal" data-target="#download" title="download" ng-click="download('primero','comercial')">
+									<i class="fa fa-download"></i>&nbsp;Descargar</a></td>
               </tr>
               {% endfor %}
             </tbody>
           </table>
-      </div>
-
+				</div>
     </div>
-  </div>
 </div>
+
 
 {# item 5 #}
-<div id="five" class="site-wrapper" style="background-color:#fff">
-  <div class="site-wrapper-inner">
-    <div class="cover-container"> 
-
-      <div class="inner cover">
-        <h1 class="page-header text-left text-info">Title number Five</h1>
-        <div class="row">
-          <div class="col-md-5">
-            <img class="img-rounded" width="90%" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgdmlld0JveD0iMCAwIDUwMCA1MDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE5MC4zMTI1IiB5PSIyNTAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MjNwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj41MDB4NTAwPC90ZXh0PjwvZz48L3N2Zz4=">
-          </div>
-          <div class="col-md-7">
-            <h1 class="text-info">Lorem ipsum dolor sit amet,<small>consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</small></h1>  
-          </div>
-        </div>
-      </div>
-
+<div id="five" class="jumbotron">
+  <div style="background-image:url('{{ asset('bundles/fremartec/dist/images/ing/bg-contact.jpg') }}')">
+    <div class="container">
+      <img src="{{ asset('bundles/fremartec/dist/images/map.jpg') }}" width="90%" style="padding: 10% 0 5% 0">
     </div>
   </div>
-</div>
 
-{# item 6 #}
-<div id="six" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg3.jpg') }}')">
-  <div class="site-wrapper-inner">
-    <div class="cover-container" > 
-
-      <div class="inner cover">
-        <div class="jumbotron" style="background-color:#fff">
-          <img src="{{ asset('bundles/fremartec/dist/images/mapa.png') }}" class="rounded" width="100%">
-          
-          <h4 class="text-ingenieria"><i class="fa fa-phone fa-lg"></i>&nbsp;053 2 634104 - 053 2 626145</h4>
-          <h4 class="text-ingenieria"><i class="fa fa-envelope fa-lg"></i>&nbsp; <a class="text-info" href="">ventas@fremartec.cl</a></h4>
-          <h4 class="text-ingenieria"><i class="fa fa-home fa-lg"></i>&nbsp;Avda David Perry Nº 45 - Ovalle</h4>
-          <br><br>
-        </div>
-        
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-4">
+        <h4 class="text-left text-ingenieria"><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;&emsp;053 2 634104 - 053 2 626145</h4>
+        <h4 class="text-left text-ingenieria"><i class="fa fa-envelope fa-lg"></i>&nbsp;&nbsp;&emsp;<a href="" class="text-info">ventas@fremartec.cl</a></h4>
+        <h4 class="text-left text-ingenieria"><i class="fa fa-home fa-lg"></i>&nbsp;&nbsp;&emsp;Avda David Perry Nº 45 - Ovalle</h4>
       </div>
-
     </div>
   </div>
 </div>
 
 <!-- Modal Area 1 -->
 <div class="modal fade" id="areaone" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-primary">
+      <div class="modal-header" style="background-color:#269952">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Area 1</h4>
+        <h4 class="modal-title" id="myModalLabel">Minería</h4>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" style="padding-bottom:0px;padding-top:0px">
         <div class="row">
+          <div class="col-md-6" style="padding-left:0px">
+            <img src="{{ asset('bundles/fremartec/dist/images/ing/work/image_2.jpg') }}" width="100%" height="350px">
+          </div>
           <div class="col-md-6">
-            <img src="{{ asset('bundles/fremartec/dist/images/bg2.jpg') }}" width="100%">
-          </div>  
-          <div class="col-md-6">
-            <p class="text-muted text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>  
+						<br>
+						<h3 class="text-muted text-left page-header"><strong>Minería</strong></h3>
+						<dl class="text-muted text-left">
+							<ul>
+								<li>Canchas para pilas de lixiviación</li>
+								<li>Piscinas para soluciones de lixiviación.</li>
+								<li>Tranques de relaves</li>
+								<li>Piping en plantas mineras</li>
+								<li>Impulsiones de agua en plantas mineras</li>
+								<li>Piezas especiales de HDPE</li>
+							</ul>
+						</dl>
+					</div>
         </div>
       </div>
     </div>
@@ -250,20 +254,30 @@
 
 <!-- Modal Area 2 -->
 <div class="modal fade" id="areatwo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-success">
+      <div class="modal-header" style="background-color:#269952">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-success" id="myModalLabel">Area 2</h4>
+        <h4 class="modal-title" id="myModalLabel">Agricultura</h4>
       </div>
-      <div class="modal-body">
+			<div class="modal-body" style="padding-bottom:0px;padding-top:0px">
         <div class="row">
+          <div class="col-md-6" style="padding:0px">
+            <img src="{{ asset('bundles/fremartec/dist/images/ing/work/image_3.jpg') }}" width="100%" height="350px">
+          </div>
           <div class="col-md-6">
-            <img src="{{ asset('bundles/fremartec/dist/images/bg2.jpg') }}" width="100%">
-          </div>  
-          <div class="col-md-6">
-            <p class="text-muted text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>  
+						<br>
+						<h3 class="text-muted text-left page-header"><strong>Agriculatura</strong></h3>
+						<dl class="text-muted text-left">
+							<ul>
+								<li>Movimientos de tierra</li>
+								<li>Estanques acumuladores de agua</li>
+								<li>Impulsiones de agua en predios agrícolas</li>
+								<li>Instalaciones de riego tecnificado</li>
+								<li>Piezas especiales de HDPE</li>
+							</ul>
+						</dl>
+					</div>
         </div>
       </div>
     </div>
@@ -272,42 +286,64 @@
 
 <!-- Modal Area 3 -->
 <div class="modal fade" id="areathree" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-info">
+      <div class="modal-header" style="background-color:#269952">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-info" id="myModalLabel">Area 3</h4>
+        <h4 class="modal-title" id="myModalLabel">Construcción</h4>
       </div>
-      <div class="modal-body">
+			<div class="modal-body" style="padding-bottom:0px;padding-top:0px">
         <div class="row">
+          <div class="col-md-6" style="padding-left:0px">
+            <img src="{{ asset('bundles/fremartec/dist/images/ing/work/image_1.jpg') }}" width="100%" height="350px">
+          </div>
           <div class="col-md-6">
-            <img src="{{ asset('bundles/fremartec/dist/images/bg2.jpg') }}" width="100%">
-          </div>  
-          <div class="col-md-6">
-            <p class="text-muted text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>  
-        </div>
-      </div>
-    </div>
-  </div>
+						<br>
+						<h3 class="text-muted text-left page-header"><strong>Contrucción</strong></h3>
+						<dl class="text-muted text-left">
+							<ul>
+								<li>Canchas para pilas de lixiviación</li>
+								<li>Piscinas para soluciones de lixiviación.</li>
+								<li>Tranques de relaves</li>
+								<li>Piping en plantas mineras</li>
+								<li>Impulsiones de agua en plantas mineras</li>
+								<li>Piezas especiales de HDPE</li>
+							</ul>
+						</dl>
+        	</div>
+      	</div>
+    	</div>
+  	</div>
+	</div>
 </div>
 
 <!-- Modal Area 4 -->
 <div class="modal fade" id="areafour" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header bg-warning">
+      <div class="modal-header" style="background-color:#269952">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title text-warning" id="myModalLabel">Area 4</h4>
+        <h4 class="modal-title" id="myModalLabel">Sanitaria</h4>
       </div>
-      <div class="modal-body">
+			<div class="modal-body" style="padding-bottom:0px;padding-top:0px">
         <div class="row">
+          <div class="col-md-6" style="padding-left:0px">
+            <img src="{{ asset('bundles/fremartec/dist/images/ing/work/image_4.jpg') }}" width="100%" height="350px">
+          </div>
           <div class="col-md-6">
-            <img src="{{ asset('bundles/fremartec/dist/images/bg2.jpg') }}" width="100%">
-          </div>  
-          <div class="col-md-6">
-            <p class="text-muted text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>  
+						<br>
+						<h3 class="text-muted text-left page-header"><strong>Sanitaria</strong></h3>
+						<dl class="text-muted text-left">
+							<ul>
+								<li>Canchas para pilas de lixiviación</li>
+								<li>Piscinas para soluciones de lixiviación.</li>
+								<li>Tranques de relaves</li>
+								<li>Piping en plantas mineras</li>
+								<li>Impulsiones de agua en plantas mineras</li>
+								<li>Piezas especiales de HDPE</li>
+							</ul>
+						</dl>
+					</div>
         </div>
       </div>
     </div>

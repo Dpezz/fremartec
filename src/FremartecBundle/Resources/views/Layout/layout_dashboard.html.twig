@@ -4,14 +4,12 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    <!-- Ionicons 2.0.0 -->
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />    
     <link href="{{ asset('bundles/fremartec/dist/sidebar/sidebar.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('bundles/fremartec/dist/sidebar/style.css') }}" rel="stylesheet" type="text/css" />
 {% endblock %}
 
 {% block body %}
-
+<!-- Fixed navbar -->
 <div class="navbar navbar-static navbar-default navbar-fixed-top">
 	<div class="container-fluid">
 	  	<div class="navbar-header">
@@ -23,14 +21,6 @@
 		    <a class="navbar-brand" href="#"><img src="{{ asset('bundles/fremartec/dist/images/logo1.png') }}" width="120px"></a>
 	  	</div>
 
-	  	{#
-	  	<button type="button" class="navbar-toggle toggle-right" data-toggle="sidebar" data-target=".sidebar-right">
-	      	<span class="icon-bar"></span>
-	      	<span class="icon-bar"></span>
-	      	<span class="icon-bar"></span>
-	    </button>
-	  	#}
-	    
       	<ul class="nav navbar-nav navbar-right hidden-xs">
         	<li><a data-toggle="sidebar" data-target=".sidebar-right" style="cursor:pointer"><i class="fa fa-bell-o"></i></a></li>
 	        <li class="dropdown active">
@@ -60,18 +50,16 @@
 <div class="container">
 	<div class="row">
 	  	<div class="col-xs-7 col-sm-3 col-md-2 sidebar sidebar-left sidebar-animate sidebar-md-show">
-		  	<ul class="nav navmenu-nav">
-	          	<li>
-	                <a id="collapseListGroupHeading1" data-toggle="collapse" href="#collapseListGroup1" aria-expanded="true" aria-controls="collapseListGroup1"><i class="fa fa-file"></i>&nbsp;Documentos&nbsp;<i class="fa fa-caret-down"></i>
-	                </a>
-	                <div id="collapseListGroup1" class="in" role="tabpanel" aria-labelledby="collapseListGroupHeading1" aria-expanded="true">
-	                  	<ul class="nav navmenu-nav">
-	                      	<li><a href="{{ path('new_document') }}">&emsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;Nuevo</a></li>
-	                      	<li class="active"><a href="{{ path('documents') }}">&emsp;&nbsp;<i class="fa fa-file"></i>&nbsp;Todos</a></li>
-	                  	</ul>
-	                </div>
-	          	</li>
-	      	</ul>
+	      	<ul class="nav navbar-stacked metismenu" id="menu">
+	            <li class="active">
+	              	<a href="#">Documentos&emsp;&nbsp;<span class="fa fa-caret-down"></span></a>
+	              	<ul class="nav nav-second-level">
+	              		<li {% block document_new %}{% endblock %}><a href="{{ path('document_new') }}">&emsp;&nbsp;<i class="fa fa-plus"></i>&nbsp;Nuevo</a></li>
+                  	<li {% block document %}{% endblock %}><a href="{{ path('document') }}">&emsp;&nbsp;<i class="fa fa-file"></i>&nbsp;Todos</a></li>
+	              	</ul>
+	              <!-- /.nav-second-level -->
+	            </li>
+	        </ul>
 	  	</div>
 	  	<div class="main col-md-10 col-md-offset-2">
 	        {% block content %}{% endblock %}
@@ -90,6 +78,12 @@
 
 {% block javascripts %}
     {{parent()}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/2.0.2/metisMenu.min.js"></script>
     <script src="{{ asset('bundles/fremartec/dist/sidebar/sidebar.js') }}"></script>
     <script src="{{ asset('bundles/fremartec/dist/angular/document_controller.js') }}"></script>
+    <script type="text/javascript">
+	$("#menu").metisMenu({
+	  doubleTapToGo: true
+	});
+	</script>
 {% endblock %}

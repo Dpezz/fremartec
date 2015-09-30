@@ -34,4 +34,60 @@ class Emails
      * @ORM\Column(name="createAt", type="datetime")
      */
     private $createAt;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Emails
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set createAt
+     *
+     * @param \DateTime $createAt
+     * @return Emails
+     */
+    public function setCreateAt($createAt)
+    {
+        $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createAt
+     *
+     * @return \DateTime 
+     */
+    public function getCreateAt()
+    {
+        return $this->createAt;
+    }
 }

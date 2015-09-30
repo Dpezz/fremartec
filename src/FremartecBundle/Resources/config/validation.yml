@@ -1,0 +1,13 @@
+FremartecBundle\Entity\Documents:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [category]
+            message: "Categoria ya existe!"
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [name]
+            message: "Nombre ya existe!"
+    properties:
+        name:
+            - NotBlank: ~
+        category:
+            - NotBlank: ~

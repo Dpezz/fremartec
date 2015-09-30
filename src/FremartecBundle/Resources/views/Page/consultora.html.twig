@@ -13,6 +13,8 @@
   </style>
 {% endblock %}
 
+{% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logos/logo4.png') }}" width="120px">{% endblock %}
+
 {% block menu %}
   <li><a href="#two">Areas</a></li>
   <li><a href="#three">Informacion</a></li>
@@ -21,22 +23,22 @@
 {% endblock %}
 
 {% block iconmenu %}
-  <li><a href="{{ path('comercial') }}"><i class="glyphicon glyphicon-stop text-comercial"></i></a></li>
-  <li><a href="{{ path('ingenieria') }}"><i class="glyphicon glyphicon-stop text-ingenieria"></i></a></li>
-  <li><a href="{{ path('home') }}"><i class="glyphicon glyphicon-home"></i></a></li>
+	<li><a href="{{ path('comercial') }}" data-toggle="tooltip" title="Comercial"><img src="{{asset('bundles/fremartec/dist/images/icons/ico1.png')}}" width="20x"></a></li>
+	<li><a href="{{ path('ingenieria') }}" data-toggle="tooltip" data-placement="bottom" title="Ingeniería"><img src="{{asset('bundles/fremartec/dist/images/icons/ico2.png')}}" width="20x"></a></li>
+  <li><a href="{{ path('home') }}" data-toggle="tooltip" data-placement="bottom" title="Inicio"><i class="glyphicon glyphicon-home"></i></a></li>
 {% endblock %}
 
 {% block content %}
 {# item 1 #}
-<div class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg7.jpg') }}')">
+<div class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/con/bg.jpg') }}');background-size:100% 100%">
     <div class="site-wrapper-inner">
-        <div class="cover-container"> 
+        <div class="cover-container">
 
         	<div class="inner cover">
-          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logo1.png') }}"></h1>
+          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo1.png') }}"></h1>
             <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
         	</div>
-          
+
         </div>
     </div>
 </div>

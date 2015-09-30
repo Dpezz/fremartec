@@ -13,29 +13,22 @@
 		        	<span class="icon-bar"></span>
 		        	<span class="icon-bar"></span>
 		      	</button>
-		      	<a class="navbar-brand" href="{{ path('home') }}">{% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logo1.png') }}" width="120px">{% endblock %}</a>
+		      	<a class="navbar-brand" href="" onclick="$('#one').animatescroll();">{% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logos/logo1.png') }}" width="120px">{% endblock %}</a>
 		    </div>
 
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      	<ul class="nav navbar-nav">
 			        <li class="visible-lg"><a></a></li>
-			        <li class="visible-lg"><a></a></li>
-			        <li id="menu-one" class="active"><a href="#">Inicio <span class="sr-only">(current)</span></a></li>
+			        <li id="menu-one" class="active"><a href="" onclick="$('#one').animatescroll();">Inicio <span class="sr-only">(current)</span></a></li>
 			        {% block menu %}{% endblock %}
 		      	</ul>
-		      	
+
 		      	<ul class="nav navbar-nav navbar-right">
 		      	{% block iconmenu %}
-	      		  	<li><a href="{{ path('comercial') }}"><i class="glyphicon glyphicon-stop text-comercial"></i></a></li>
-	      		  	<li><a href="{{ path('ingenieria') }}"><i class="glyphicon glyphicon-stop text-ingenieria"></i></a></li>
-				 	<li><a href="{{ path('consultora') }}"><i class="glyphicon glyphicon-stop text-consultora"></i></a></li>
-
-		      		{#
-		        	<li><a href="{{ path('home') }}"><i class="glyphicon glyphicon-home"></i></a></li>
-		        	<li><a href="#"><i class="glyphicon glyphicon-envelope"></i></a></li>
-		        	<li><a href="{{ path('login') }}"><i class="glyphicon glyphicon-log-in"></i></a></li>
-		        	#}
+	      		  	<li><a href="{{ path('comercial') }}" data-toggle="tooltip" data-placement="bottom" title="Comercial"><img src="{{asset('bundles/fremartec/dist/images/icons/ico1.png')}}" width="20x"></a></li>
+	      		  	<li><a href="{{ path('ingenieria') }}" data-toggle="tooltip" data-placement="bottom" title="Ingeniería"><img src="{{asset('bundles/fremartec/dist/images/icons/ico2.png')}}" width="20x"></a></li>
+				 				<li><a href="{{ path('consultora') }}" data-toggle="tooltip" data-placement="bottom" title="Consultora"><img src="{{asset('bundles/fremartec/dist/images/icons/ico3.png')}}" width="20x"></a></li>
 		        {% endblock %}
 		      	</ul>
 		    </div><!-- /.navbar-collapse -->
@@ -52,12 +45,12 @@
 			      Avda David Perry Nº 45 - Ovalle, Chile - {{'now'|date('Y')}}</h6>
 		  	</footer>
 		</div>{% endblock %}
-	
 {% endblock %}
 
 {% block javascripts %}
     {{parent()}}
     <script src="{{ asset('bundles/fremartec/dist/menu/menu.js') }}"></script>
+    <script src="{{ asset('bundles/fremartec/dist/animate_scroll/animatescroll.min.js') }}"></script>
 	<!--Start of Zopim Live Chat Script-->
 	<script type="text/javascript">
 	window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
@@ -68,4 +61,3 @@
 	</script>
 	<!--End of Zopim Live Chat Script-->
 {% endblock %}
-   

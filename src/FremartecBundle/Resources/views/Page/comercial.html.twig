@@ -13,7 +13,7 @@
   </style>
 {% endblock %}
 
-{% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logo2.png') }}" width="120px">{% endblock %}
+{% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logos/logo2.png') }}" width="120px">{% endblock %}
 
 {% block menu %}
   <li id="menu-two"><a href="#two">Hidraulica</a></li>
@@ -22,24 +22,29 @@
 {% endblock %}
 
 {% block iconmenu %}
-  <li><a href="{{ path('ingenieria') }}"><i class="glyphicon glyphicon-stop text-ingenieria"></i></a></li>
-  <li><a href="{{ path('consultora') }}"><i class="glyphicon glyphicon-stop text-consultora"></i></a></li>
-  <li><a href="{{ path('home') }}"><i class="glyphicon glyphicon-home"></i></a></li>
+	<li><a href="{{ path('ingenieria') }}" data-toggle="tooltip" data-placement="bottom" title="Ingeniería"><img src="{{asset('bundles/fremartec/dist/images/icons/ico2.png')}}" width="20x"></a></li>
+	<li><a href="{{ path('consultora') }}" data-toggle="tooltip" title="Consultora"><img src="{{asset('bundles/fremartec/dist/images/icons/ico3.png')}}" width="20x"></a></li>
+  <li><a href="{{ path('home') }}" data-toggle="tooltip" data-placement="bottom" title="Inicio"><i class="glyphicon glyphicon-home"></i></a></li>
 {% endblock %}
 
 
 {% block content %}
 
 {# item 1 #}
-<div id="one" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg4.jpg') }}')">
+<div id="one" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/com/bg.jpg') }}');background-size:100% 100%">
     <div class="site-wrapper-inner">
-        <div class="cover-container"> 
+        <div class="cover-container">
 
         	<div class="inner cover">
-          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logo2.png') }}"></h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo2.png') }}"></h1>
+            <p class="lead">
+							Fremartec Comercial es el área dedicada a la comercialización
+							de insumos de riego, geomembranas y bombas.
+							Para nosotros contar con buenos insumos es un factor clave
+							para realizar grandes proyectos.
+						</p>
         	</div>
-          
+
         </div>
     </div>
 </div>
@@ -47,7 +52,7 @@
 {# item 2 #}
 <div id="two" class="site-wrapper" style="background-color:#fff">
   <div class="site-wrapper-inner">
-    <div class="cover-container"> 
+    <div class="cover-container">
 
       <div class="inner cover">
 
@@ -73,7 +78,7 @@
           </div>
         </div>
       </div>
-          
+
     </div>
   </div>
 </div>
@@ -81,7 +86,7 @@
 {# item 3 #}
 <div id="three" class="site-wrapper" style="background-color:#fff;color:#000" >
   <div class="site-wrapper-inner">
-    <div class="cover-container"> 
+    <div class="cover-container">
 
       <div class="inner cover">
         <h1 class="page-header text-left text-info">Title number Four</h1>
@@ -114,18 +119,18 @@
 {# item 4 #}
 <div id="four" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg3.jpg') }}')">
   <div class="site-wrapper-inner">
-    <div class="cover-container" > 
+    <div class="cover-container" >
 
       <div class="inner cover">
         <div class="jumbotron" style="background-color:#fff">
           <img src="{{ asset('bundles/fremartec/dist/images/mapa.png') }}" class="rounded" width="100%">
-          
+
           <h4 class="text-comercial"><i class="fa fa-phone fa-lg"></i>&nbsp;053 2 634104 - 053 2 626145</h4>
           <h4 class="text-comercial"><i class="fa fa-envelope fa-lg"></i>&nbsp; <a class="text-info" href="">ventas@fremartec.cl</a></h4>
           <h4 class="text-comercial"><i class="fa fa-home fa-lg"></i>&nbsp;Avda David Perry Nº 45 - Ovalle</h4>
           <br><br>
         </div>
-        
+
       </div>
 
     </div>
@@ -150,7 +155,7 @@
                 <strong><i class="fa fa-check-circle"></i>&emsp;Gracias</strong> por preferir Fremartec.
               </div>
               <div class="modal-footer">
-                <a type="button" class="btn btn-info" data-dismiss="modal"><i class="fa fa-remove"></i>&nbsp;Cerrar</a>
+                <a type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-remove"></i>&nbsp;Cerrar</a>
                 <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="download_save()"><i class="fa fa-download" data-dismiss="modal"></i>&nbsp;Descargar</button>
               </div>
             </form>
