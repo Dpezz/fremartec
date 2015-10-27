@@ -16,10 +16,8 @@
 {% block logo %}<img src="{{ asset('bundles/fremartec/dist/images/logos/logo4.png') }}" width="120px">{% endblock %}
 
 {% block menu %}
-  <li><a href="#two">Areas</a></li>
-  <li><a href="#three">Informacion</a></li>
-  <li><a href="#four">Atributos</a></li>
-  <li><a href="#five">Causa</a></li>
+  <li id="menu-two"><a href="#two" onclick="$('#two').animatescroll();">Proyecto</a></li>
+  <li id="menu-three"><a href="#three" onclick="$('#three').animatescroll();">Contacto</a></li>
 {% endblock %}
 
 {% block iconmenu %}
@@ -30,16 +28,103 @@
 
 {% block content %}
 {# item 1 #}
-<div class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/con/bg.jpg') }}');background-size:100% 100%">
+<div id="one" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/con/bg.jpg') }}');background-size:100% 100%">
     <div class="site-wrapper-inner">
         <div class="cover-container">
 
         	<div class="inner cover">
-          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo1.png') }}"></h1>
-            <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo-consultora.png') }}"></h1>
+            <p class="lead">
+							Nuestra consultora está capacitada para responder y resolver los principales
+							problemas que afectan nuestra zona, en cuanto a la optimización del recurso agua.
+						</p>
+						<p>
+							<a href="#" type="button" class="btn btn-primary btn-lg" onclick="$('#two').animatescroll();">Conoce Nuestra Propuesta</a>
+						</p>
         	</div>
 
         </div>
     </div>
+</div>
+
+{# item 2 #}
+<div id="two" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/con/bg2.jpg') }}')">
+	<div class="container">
+		<div class="container-sm">
+			<img src="{{ asset('bundles/fremartec/dist/images/home/about/hr.png') }}" width="100%">
+			<h4 class="text-center text-info"><strong>COMO CONSULTORA NUESTRO FOCO ESTÁ EN SER UN CONSTANTE APOYO EN LA BUSQUEDA DE PROYECTOS</strong></h4>
+			<img src="{{ asset('bundles/fremartec/dist/images/home/about/hr.png') }}" width="100%">
+		</div>
+		<br><br>
+
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				    <h3 class="panel-title">Servicios Permanentes</h3>
+				  </div>
+				  <div class="panel-body">
+						<br>
+						<ul class="text-muted text-left">
+							<li>Estudio y presentación de proyectos a la Ley de Riego 18.450.</li>
+							<li>Levantamiento topográfico y dibujos.</li>
+						  <li>DIseño y cubicación de obras civiles y proyectos de riego tecnificado.</li>
+						</ul>
+						<br><br><br><br>
+						<br><br><br><br>
+				  </div>
+				</div>
+			</div>
+
+			<div class="col-md-6">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+				    <h3 class="panel-title">Buscamos los proyectos que mejor se adapten a su necesidad.</h3>
+				  </div>
+				  <div class="panel-body">
+						<br>
+						<ul class="text-muted text-left">
+							<li>Presentación de proyectos Ley de riego 18.450.</li>
+							<li>Diseño y postulación proyectos de riego a CORFO.</li>
+						  <li>Postulación de proyectos a FIA.</li>
+							<li>Apoyo a línea de programas CORFO.</li>
+						</ul>
+						<hr>
+						<h5 class="text-primary">BUSCAMOS APOYO CON ENTIDADES DE GOBIERNO PARA FINANCIAR TU PROYECTO.</h5>
+
+						<img src="{{ asset('bundles/fremartec/dist/images/con/logo-fosis.jpg') }}" alt="Fosis">
+						<img src="{{ asset('bundles/fremartec/dist/images/con/logo-CNR.jpg') }}" alt="CNR">
+						<img src="{{ asset('bundles/fremartec/dist/images/con/sercotec.png') }}" alt="Sercotec">
+						<img src="{{ asset('bundles/fremartec/dist/images/con/indap.png') }}" alt="Indap">
+						<img src="{{ asset('bundles/fremartec/dist/images/con/corfo.png') }}" alt="Corfo">
+						<img src="{{ asset('bundles/fremartec/dist/images/con/fia.jpg') }}" alt="FIA">
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<br><br><br>
+	<br><br><br>
+</div>
+
+
+{# item 3 #}
+<div id="three" class="jumbotron">
+  <div style="background-image:url('{{ asset('bundles/fremartec/dist/images/con/bg-contact.jpg') }}')">
+    <div class="container">
+      <img src="{{ asset('bundles/fremartec/dist/images/map.jpg') }}" width="90%" style="padding: 10% 0 5% 0">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-4">
+        <h4 class="text-left text-consultora"><i class="fa fa-phone fa-lg"></i>&nbsp;&nbsp;&emsp;053 2 634104 - 053 2 626145</h4>
+        <h4 class="text-left text-consultora"><i class="fa fa-envelope fa-lg"></i>&nbsp;&nbsp;&emsp;<a href="" class="text-info">ventas@fremartec.cl</a></h4>
+        <h4 class="text-left text-consultora"><i class="fa fa-home fa-lg"></i>&nbsp;&nbsp;&emsp;Avda David Perry Nº 45 - Ovalle</h4>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}

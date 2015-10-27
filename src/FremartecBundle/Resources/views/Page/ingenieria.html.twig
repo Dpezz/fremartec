@@ -159,21 +159,23 @@
 
 {# item 4 #}
 <div id="four" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}')">
-    <div class="container" style="background-color: #fff">
-			<h4 class="text-center text-primary"><strong>Descargar Manuales</strong></h4>
-			<br>
-			<div class="container-sm">
-				<h4 class="text-muted">
-					En esta sección encontrarás manuales con información
-					para realizar diversos tipos de trabajos en diferentes escenarios,
-					que servirán para una correcta instalación de geomembranas de HDPE.
-				</h4>
+    <div class="container">
+			<div style="background-color: #fff">
+				<br>
+				<h3 class="text-center text-primary"><strong>Descargar Manuales</strong></h3>
+				<br>
+				<div class="container-sm">
+					<h4 class="text-muted">
+						En esta sección encontrarás manuales con información
+						para realizar diversos tipos de trabajos en diferentes escenarios,
+						que servirán para una correcta instalación de geomembranas de HDPE.
+					</h4>
+				</div>
 			</div>
 
-			<div>
-	        <img src="{{ asset('bundles/fremartec/dist/images/ing/download/bg-curva.png') }}" width="100%">
-	    </div>
 
+	        <img src="{{ asset('bundles/fremartec/dist/images/ing/download/bg-curva.png') }}" width="100%">
+	    
 			<div class="container-sm" style="background-image:url('{{ asset('bundles/fremartec/dist/images/ing/download/bg.jpg') }}');background-size:100% 100%">
           {% set url = path(app.request.attributes.get('_route'))|trim('/') %}
           <table class="table table-hover">
@@ -185,7 +187,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for i in 1..10 %}
+              {% for i in 1..8 %}
               <tr>
                 <td><span class="badge btn-success" style="background-color:#a0b620">{{i}}</span></td>
                 <td><strong class="label label-default">titulo_{{i}}</strong></td>
