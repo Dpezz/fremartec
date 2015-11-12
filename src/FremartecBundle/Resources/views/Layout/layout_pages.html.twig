@@ -35,7 +35,13 @@
 	  	</div><!-- /.container-fluid -->
 	</nav>
 	{% block content %}{% endblock %}
-	{% block navbar_bottom %}{% endblock %}
+
+	
+	<nav class="navbar navbar-default-bottom navbar-fixed-bottom">
+	  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
+	  <div class="container">{% block navbar_bottom %}{% endblock %}</div>
+	</nav>
+
 	{% block footer %}
 		<div class="container">
 		  	<hr>
@@ -51,13 +57,4 @@
     {{parent()}}
     <script src="{{ asset('bundles/fremartec/dist/menu/menu.js') }}"></script>
     <script src="{{ asset('bundles/fremartec/dist/animate_scroll/animatescroll.min.js') }}"></script>
-	<!--Start of Zopim Live Chat Script-->
-	<script type="text/javascript">
-	window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
-	d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
-	_.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute("charset","utf-8");
-	$.src="//v2.zopim.com/?2spWTNsBqfw2qA538wX4tGImmyLJdZYh";z.t=+new Date;$.
-	type="text/javascript";e.parentNode.insertBefore($,e)})(document,"script");
-	</script>
-	<!--End of Zopim Live Chat Script-->
 {% endblock %}

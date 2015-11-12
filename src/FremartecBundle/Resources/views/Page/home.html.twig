@@ -34,7 +34,7 @@
 
 
 {# item 2 #}
-<div id="two" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}')">
+<div id="two" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}');background-size:100% 100%">
   <div class="container" style="background-color: rgba(255, 255, 255, 0.6)">
       <img id="img-rotate" src="{{ asset('bundles/fremartec/dist/images/home/about/image_1.png') }}" width="100%">
 
@@ -142,7 +142,7 @@
 
 
 {# item 4 #}
-<div id="four" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/home/ambient/bg.jpg') }}')">
+<div id="four" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/home/ambient/bg.jpg') }}');background-size:100% 100%">
   <div class="container">
     <div style="background-color: rgba(255, 255, 255, 0.78)">
       <br>
@@ -208,9 +208,6 @@
 
 
 {% block navbar_bottom %}
-<nav class="navbar navbar-default-bottom navbar-fixed-bottom">
-  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
-  <div class="container">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-7" aria-expanded="false" style="float:left">
           <span class="sr-only">Toggle navigation</span>
@@ -223,7 +220,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-7">
         <ul class="nav navbar-nav">
           <li><a href="#"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;Ovalle,Chile</a></li>
-          <li><a href="#"><i class="glyphicon glyphicon-tint"></i>&nbsp;{{ 'now'|date('D-d') }}</a></li>
+          <li><a href="#"><i class="glyphicon glyphicon-calendar"></i>&nbsp;{{ 'now'|date('D-d') }}</a></li>
           <li><a href="#"><i class="fa fa-sun-o"></i>&nbsp;15/20º</a></li>
           <li><a href=""></a></li>
           <li><a href=""></a></li>
@@ -233,8 +230,6 @@
           <li><a href="#"><strong>UTM</strong>&nbsp;{[{ indices.utm.valor}]}</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
-  </div>
-</nav>
 {% endblock %}
 
 {% block javascripts %}

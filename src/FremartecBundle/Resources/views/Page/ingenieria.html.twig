@@ -63,24 +63,19 @@
 				<h2 class="text-center text-info">Nuestros Servicios</h2>
 			</div>
 			<br>
-				<div class="col-md-3 unite-sm">
+				<div class="col-md-4 unite-sm">
           <div class="inner" id="area1-ingenieria"></div>
 					<h4><a href="#" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#areatwo">Agricultura</a></h4>
 			  </div>
 
-        <div class="col-md-3 unite-sm">
-          <div class="inner" id="area2-ingenieria"></div>
-					<h4><a href="#" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#areathree">Construcción</a></h4>
-        </div>
-
-        <div class="col-md-3 unite-sm">
+        <div class="col-md-4 unite-sm">
           <div class="inner" id="area3-ingenieria"></div>
 					<h4><a href="#" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#areaone">Minería</a></h4>
         </div>
 
-        <div class="col-md-3 unite-sm">
+        <div class="col-md-4 unite-sm">
           <div class="inner" id="area4-ingenieria"></div>
-					<h4><a href="#" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#areafour">Sanitaria</a></h4>
+					<h4><a href="#" class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#areathree">Sanitaria</a></h4>
         </div>
       </div>
   </div>
@@ -158,11 +153,11 @@
 
 
 {# item 4 #}
-<div id="four" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}')">
+<div id="four" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}');background-size:100% 100%">
     <div class="container">
 			<div style="background-color: #fff">
 				<br>
-				<h3 class="text-center text-primary"><strong>Descargar Manuales</strong></h3>
+				<h2 class="text-center text-primary"><strong>Descargar Manuales</strong></h2>
 				<br>
 				<div class="container-sm">
 					<h4 class="text-muted">
@@ -174,8 +169,8 @@
 			</div>
 
 
-	        <img src="{{ asset('bundles/fremartec/dist/images/ing/download/bg-curva.png') }}" width="100%">
-	    
+      <img src="{{ asset('bundles/fremartec/dist/images/ing/download/bg-curva.png') }}" width="100%">
+
 			<div class="container-sm" style="background-image:url('{{ asset('bundles/fremartec/dist/images/ing/download/bg.jpg') }}');background-size:100% 100%">
           {% set url = path(app.request.attributes.get('_route'))|trim('/') %}
           <table class="table table-hover">
@@ -191,7 +186,7 @@
               <tr>
                 <td><span class="badge btn-success" style="background-color:#a0b620">{{i}}</span></td>
                 <td><strong class="label label-default">titulo_{{i}}</strong></td>
-                <td><a href="" class="btn btn-success text-muted" data-toggle="modal" data-target="#download" title="download" ng-click="download('primero','comercial')">
+                <td><a href="" class="btn btn-success" data-toggle="modal" data-target="#download" title="download" ng-click="download('primero','comercial')">
 									<i class="fa fa-download"></i>&nbsp;Descargar</a></td>
               </tr>
               {% endfor %}
@@ -240,11 +235,11 @@
 						<dl class="text-muted text-left">
 							<ul>
 								<li>Canchas para pilas de lixiviación</li>
-								<li>Piscinas para soluciones de lixiviación.</li>
-								<li>Tranques de relaves</li>
-								<li>Piping en plantas mineras</li>
-								<li>Impulsiones de agua en plantas mineras</li>
-								<li>Piezas especiales de HDPE</li>
+								<li> Piscinas acumuladoras de agua</li>
+								<li> Piscinas de procesos</li>
+								<li> Piping en plantas mineras</li>
+								<li> Termofusión de tuberías HDPE</li>
+								<li> Piezas especiales de HDPE fabricadas a pedido</li>
 							</ul>
 						</dl>
 					</div>
@@ -272,11 +267,13 @@
 						<h3 class="text-muted text-left page-header"><strong>Agriculatura</strong></h3>
 						<dl class="text-muted text-left">
 							<ul>
-								<li>Movimientos de tierra</li>
-								<li>Estanques acumuladores de agua</li>
-								<li>Impulsiones de agua en predios agrícolas</li>
-								<li>Instalaciones de riego tecnificado</li>
-								<li>Piezas especiales de HDPE</li>
+								<li> Construcción de estanques acumuladores</li>
+								<li> Instalación de geomembrana en estanques</li>
+								<li> Instalación de geomembranas en canales</li>
+								<li> Montaje de tuberías HDPE en canales</li>
+								<li> Termofusión de tuberías HDPE</li>
+								<li> Montaje de bombas impulsoras</li>
+								<li> Instalaciones de riego tecnificado</li>
 							</ul>
 						</dl>
 					</div>
@@ -286,41 +283,9 @@
   </div>
 </div>
 
+
 <!-- Modal Area 3 -->
 <div class="modal fade" id="areathree" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header" style="background-color:#269952">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Construcción</h4>
-      </div>
-			<div class="modal-body" style="padding-bottom:0px;padding-top:0px">
-        <div class="row">
-          <div class="col-md-6" style="padding-left:0px">
-            <img src="{{ asset('bundles/fremartec/dist/images/ing/work/image_1.jpg') }}" width="100%" height="350px">
-          </div>
-          <div class="col-md-6">
-						<br>
-						<h3 class="text-muted text-left page-header"><strong>Contrucción</strong></h3>
-						<dl class="text-muted text-left">
-							<ul>
-								<li>Canchas para pilas de lixiviación</li>
-								<li>Piscinas para soluciones de lixiviación.</li>
-								<li>Tranques de relaves</li>
-								<li>Piping en plantas mineras</li>
-								<li>Impulsiones de agua en plantas mineras</li>
-								<li>Piezas especiales de HDPE</li>
-							</ul>
-						</dl>
-        	</div>
-      	</div>
-    	</div>
-  	</div>
-	</div>
-</div>
-
-<!-- Modal Area 4 -->
-<div class="modal fade" id="areafour" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header" style="background-color:#269952">
@@ -337,12 +302,10 @@
 						<h3 class="text-muted text-left page-header"><strong>Sanitaria</strong></h3>
 						<dl class="text-muted text-left">
 							<ul>
-								<li>Canchas para pilas de lixiviación</li>
-								<li>Piscinas para soluciones de lixiviación.</li>
-								<li>Tranques de relaves</li>
-								<li>Piping en plantas mineras</li>
-								<li>Impulsiones de agua en plantas mineras</li>
-								<li>Piezas especiales de HDPE</li>
+								<li>Estanques acumuladores de agua</li>
+								<li> Termofusión tuberías HDPE</li>
+								<li> Electrofusión fittng HDPE</li>
+								<li> Piezas especiales de HDPE fabricadas a pedido</li>
 							</ul>
 						</dl>
 					</div>
@@ -351,4 +314,11 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block navbar_bottom %}
+	<h5 class="text-center">
+			<span class="text-ingenieria" style="font-size:25px"><strong>Cotice Aquí Nuestros Servicios</strong></span>&emsp;&emsp;&emsp;
+			<a href="mailto:ventas@fremartec.cl" type="button" class="btn btn-primary btn-lg"><i class="fa fa-envelope"></i>&nbsp;Cotizar</a>
+	</h5>
 {% endblock %}
