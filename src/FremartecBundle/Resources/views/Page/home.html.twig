@@ -6,6 +6,7 @@
 	{{parent()}}
   <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/cover/cover.css') }}">
   <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/flip/flip.css') }}">
+  <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/carousel/carousel.css') }}">
 {% endblock %}
 
 {% block menu %}
@@ -16,22 +17,56 @@
 {% endblock %}
 
 {% block content %}
-{# item 1 #}
-<div id="one" class="site-wrapper" style="background-image:url('{{ asset('bundles/fremartec/dist/images/home/bg1.jpg') }}');background-size:100% 100%">
-    <div class="site-wrapper-inner">
-        <div class="cover-container">
-        	<div class="inner cover">
 
-          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo.png') }}"></h1>
-          	<p class="lead">Queremos presentar nuestro nuevo sitio y nuestras nuevas áreas de negocio, pensadas para entregar una nueva experiencia de servicios a nuestros clientes, y que juntos desarrollemos un proyecto de excelencia a las medidas de sus necesidades.</p>
+
+{# item 1 #}
+<div id="one" class="carousel slide">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    {% for i in 1..4 %}
+      {% if (i - 1) == 0 %}
+        <li data-target="#one" data-slide-to="{{ i - 1 }}" class="active"></li>
+      {% else %}
+        <li data-target="#one" data-slide-to="{{ i - 1 }}" class=""></li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+
+  <!-- Wrapper for Slides -->
+  <div class="carousel-inner">
+    {% for item in 1..4 %}
+      {% if loop.index == 1 %}
+        <div class="item active">
+      {% else %}
+        <div class="item">
+      {% endif %}
+        <div class="fill" style="background-image:url('{{ asset('bundles/fremartec/dist/images/home/bg'~(loop.index)~'.jpg') }}');">
+        </div>
+        {% if loop.index == 1 %}
+        <div class="container">
+          <div class="carousel-caption" style="bottom:180px">
+            <h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo.png') }}"></h1>
+            <p class="lead shadow" style="color:#fff">
+              Presentamos nuevo sitio y nuestras nuevas áreas de negocio, pensadas para entregar una nueva experiencia de servicio a nuestros clientes para que en conjunto desarrollemos proyectos de gran nivel a la medida de sus necesidades, desde el proyecto inicial hasta su construcción.
+            </p>
             <p>
-              <a href="" onclick="$('#two').animatescroll();"><i class="fa fa-angle-double-down fa-3x"></i></a>
+              <a href="#" onclick="$('#three').animatescroll();" class="btn btn-success btn-lg">Conoce Nuestras Areas de Negocio&nbsp;<i class="fa fa-angle-double-down fa-lg"></i></a>
             </p>
           </div>
         </div>
-    </div>
-</div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#one" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#one" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
 
 {# item 2 #}
 <div id="two" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/bg.jpg') }}');background-size:100% 100%">
@@ -218,16 +253,16 @@
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-7">
-        <ul class="nav navbar-nav">
-          <li><a href="#"><i class="glyphicon glyphicon-map-marker"></i>&nbsp;Ovalle,Chile</a></li>
-          <li><a href="#"><i class="glyphicon glyphicon-calendar"></i>&nbsp;{{ 'now'|date('D-d') }}</a></li>
-          <li><a href="#"><i class="fa fa-sun-o"></i>&nbsp;15/20º</a></li>
-          <li><a href=""></a></li>
-          <li><a href=""></a></li>
-          <li><a href="#"><i class="fa fa-dollar"></i>&nbsp;{[{ indices.dolar.valor}]}</a></li>
-          <li><a href="#"><i class="fa fa-euro"></i>&nbsp;{[{ indices.euro.valor}]}</a></li>
-          <li><a href="#"><strong>UF</strong>&nbsp;{[{ indices.uf.valor}]}</a></li>
-          <li><a href="#"><strong>UTM</strong>&nbsp;{[{ indices.utm.valor}]}</a></li>
+        <ul id="navbar-bottom" class="nav navbar-nav">
+          <li><a><i class="glyphicon glyphicon-map-marker"></i>&nbsp;Ovalle,Chile</a></li>
+          <li><a><i class="glyphicon glyphicon-calendar"></i>&nbsp;{{ 'now'|date('D-d') }}</a></li>
+          <li><a><i class="fa fa-sun-o"></i>&nbsp;15/20º</a></li>
+          <li><a></a></li>
+          <li><a></a></li>
+          <li><a><i class="fa fa-dollar"></i>&nbsp;{[{ indices.dolar.valor}]}</a></li>
+          <li><a><i class="fa fa-euro"></i>&nbsp;{[{ indices.euro.valor}]}</a></li>
+          <li><a><strong>UF</strong>&nbsp;{[{ indices.uf.valor}]}</a></li>
+          <li><a><strong>UTM</strong>&nbsp;{[{ indices.utm.valor}]}</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
 {% endblock %}
@@ -241,7 +276,7 @@
     function contador(){
       cont++;
 
-      if (cont == 7)
+      if (cont == 6)
         cont = 1
 
       var url = "{{ asset('bundles/fremartec/dist/images/home/about/image_contador.png') }}"
@@ -251,6 +286,10 @@
     }
 
     setInterval('contador()',5000);
+
+    $('.carousel').carousel({
+      interval: 2000
+    })
   </script>
 
 {% endblock %}

@@ -36,14 +36,14 @@
     <div class="site-wrapper-inner">
         <div class="cover-container">
         	<div class="inner cover">
-
-						<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo-comercial.png') }}"></h1>
-						<p class="lead">
-							Fremartec Comercial es el área dedicada a la comercialización
-							de insumos de riego, geomembranas y bombas.
-							Para nosotros contar con buenos insumos es un factor clave
-							para realizar grandes proyectos.
-						</p>
+				<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo-comercial.png') }}"></h1>
+				<p class="lead shadow">
+					Fremartec Comercial es el área dedicada a la comercialización
+					de insumos de riego, geomembranas y bombas.
+					Para nosotros contar con buenos insumos es un factor clave
+					para realizar grandes proyectos.
+				</p>
+				<a href="#" onclick="$('#productos').animatescroll();" class="btn btn-success btn-lg">Conoce Nuestros Productos&nbsp;<i class="fa fa-angle-double-down fa-lg"></i></a>
           </div>
         </div>
     </div>
@@ -58,7 +58,7 @@
 				<div class="row">
 					<div class="col-md-10">
 						<h6 class="text-consultora text-left" style="padding-left:20px;padding-top:20px;font-size:20px;">
-							Te invitamos a conocer nuestra amplia oferta de
+							<strong>Te invitamos a conocer</strong> nuestra amplia oferta de
 							productos para riego tecnificado, impulsiones y bombeos.</h6>
 					</div>
 				</div>
@@ -71,15 +71,17 @@
 					<div class="col-md-3">
 						<img id="img-rotate" src="{{ asset('bundles/fremartec/dist/images/com/productos/tablero-electrico.png') }}" width="100%">
 						<img id="img-rotate" src="{{ asset('bundles/fremartec/dist/images/com/productos/valvula-electrica.png') }}" width="100%" style="padding-top:5px;padding-bottom:5px">
-          </div>
+          			</div>
 					<div class="col-md-6">
 						<img id="img-rotate" src="{{ asset('bundles/fremartec/dist/images/com/productos/presentacion.jpg') }}" width="100%">
-						<button type="button" class="btn btn-primary btn-block btn-lg">Conoce Nuestra Familia de Productos</button>
-          </div>
+						<br>
+						<br>
+						<a href="" onclick="$('#productos').animatescroll();" type="button" class="btn btn-primary btn-block btn-lg">Conoce Nuestra Familia de Productos</a>
+          			</div>
 					<div class="col-md-3">
 						<img id="img-rotate" src="{{ asset('bundles/fremartec/dist/images/com/productos/bombas-sumergibles.png') }}" width="100%">
 						<img id="img-rotate" src="{{ asset('bundles/fremartec/dist/images/com/productos/manguera-goteo.png') }}" width="100%" style="padding-top:5px;padding-bottom:5px">
-          </div>
+          			</div>
 				</div>
 
 				<div class="row">
@@ -105,21 +107,21 @@
 				<br>
 
 				<div class="well">
-					<div id="first-marcas">
+					<div id="first-marcas" class="">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/VOGT.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/TORO.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/TIGRE.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/RAPHAEL.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/POLYTEX.png') }}" width="120px">
 					</div>
-					<div id="second-marcas">
+					<div id="second-marcas" class="hidden">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/PENTAX.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/NANDANJAIN.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/KSB.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/HOFFENS.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/GESTIRRIEGO.png') }}" width="120px">
 					</div>
-					<div id="three-marcas">
+					<div id="three-marcas" class="hidden">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/AZUD.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/ARI.png') }}" width="120px">
 						<img src="{{ asset('bundles/fremartec/dist/images/com/marcas/AMIAD.png') }}" width="120px">
@@ -132,51 +134,13 @@
 </div>
 
 {# item 3 #}
-<div class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/com/bg2.jpg') }}');background-size:100% 100%">
+<div id="productos" class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/com/bg2.jpg') }}');background-size:100% 100%">
   <div class="container" style="background-color: rgba(255, 255, 255, 0.6)">
 
-		<h2 class="page-header text-left text-info">Productos Por Familia</h2>
-
-		<div class="row">
-			<div class="col-md-5">
-				<h3 class="page-header text-muted text-left">Válvulas</h3>
-				<ol class="text-left text-muted">
-					<li>Válvulas eléctricas plásticas</li>
-					<li>válvula eléctrica metálica</li>
-					<li>válvulas de compuerta</li>
-					<li>válvula de bola</li>
-					<li>válvula de mariposa</li>
-					<li>válvula de aire</li>
-					<li>válvulas de retención</li>
-				</ol>
-			</div>
-			<div class="col-md-7">
-				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-01.png') }}">
-			</div>
-		</div>
-
-		<br>
+		<h2 class="page-header text-left text-info"><strong>Productos Por Familia</strong></h2>
 
 
 		<div class="row">
-			<div class="col-md-7">
-				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-04.png') }}">
-			</div>
-			<div class="col-md-5">
-				<h3 class="page-header text-muted text-left">Líneas de riego y Emisores</h3>
-				<ol class="text-left text-muted">
-					<li>Cintas de riego</li>
-					<li>Línea de goteo autocompensada</li>
-					<li>línea de goteo normal</li>
-					<li>Microaspersión</li>
-					<li>Aspersores</li>
-				</ol>
-			</div>
-		</div>
-
-		<br>
-
-    <div class="row">
       <div class="col-md-5">
 				<h3 class="page-header text-muted text-left"><strong>Bombas y tableros</strong></h3>
 				<ol class="text-left text-muted">
@@ -193,13 +157,7 @@
       </div>
     </div>
 
-
-	</div>
-</div>
-
-<div class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/com/bg3.jpg') }}');background-size:100% 100%">
-  <div class="container" style="background-color: rgba(255, 255, 255, 0.6)">
-
+		<br>
 
 		<div class="row">
 			<div class="col-md-7">
@@ -218,6 +176,28 @@
 		</div>
 
 		<br>
+
+		<div class="row">
+			<div class="col-md-5">
+				<h3 class="page-header text-muted text-left">Líneas de riego y Emisores</h3>
+				<ol class="text-left text-muted">
+					<li>Cintas de riego</li>
+					<li>Línea de goteo autocompensada</li>
+					<li>Línea de goteo normal</li>
+					<li>Microaspersión</li>
+					<li>Aspersores</li>
+				</ol>
+			</div>
+			<div class="col-md-7">
+				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-04.png') }}">
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="jumbotron" style="background-image:url('{{ asset('bundles/fremartec/dist/images/com/bg3.jpg') }}');background-size:100% 100%">
+  <div class="container" style="background-color: rgba(255, 255, 255, 0.6)">
 
 		<div class="row">
 			<div class="col-md-5">
@@ -240,8 +220,25 @@
 
 		<div class="row">
 			<div class="col-md-7">
-				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-06.png') }}">
+				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-01.png') }}">
 			</div>
+			<div class="col-md-5">
+				<h3 class="page-header text-muted text-left">Válvulas</h3>
+				<ol class="text-left text-muted">
+					<li>Válvulas eléctricas plásticas</li>
+					<li>Válvula eléctrica metálica</li>
+					<li>Válvulas de compuerta</li>
+					<li>Válvula de bola</li>
+					<li>Válvula de mariposa</li>
+					<li>Válvula de aire</li>
+					<li>Válvulas de retención</li>
+				</ol>
+			</div>
+		</div>
+
+		<br>
+
+		<div class="row">
 			<div class="col-md-5">
 				<h3 class="page-header text-muted text-left">Filtros</h3>
 				<ol class="text-left text-muted">
@@ -252,24 +249,26 @@
 					<li>Baterías filtros de arena automáticos.</li>
 				</ol>
 			</div>
+			<div class="col-md-7">
+				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-06.png') }}">
+			</div>
 		</div>
 
 		<br>
 
 		<div class="row">
+			<div class="col-md-7">
+				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-07.png') }}">
+			</div>
 			<div class="col-md-5">
 				<h3 class="page-header text-muted text-left">Accesorios</h3>
 				<ol class="text-left text-muted">
 					<li>Pegamentos PVC</li>
-					<li>lubricantes PVC</li>
-					<li>manometros</li>
-					<li>collarines</li>
-					<li>caudalimetros</li>
+					<li>Lubricantes PVC</li>
+					<li>Manometros</li>
+					<li>Collarines</li>
+					<li>Caudalimetros</li>
 				</ol>
-			</div>
-
-			<div class="col-md-7">
-				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-07.png') }}">
 			</div>
 		</div>
 	</div>
@@ -284,9 +283,7 @@
 				<br>
 				<div class="container-sm">
 					<h4 class="text-muted">
-						En esta sección encontrarás manuales con información
-						para realizar diversos tipos de trabajos en diferentes escenarios,
-						que servirán para una correcta instalación de geomembranas de HDPE.
+						En esta sección encuentras las fichas técnicas de nuestros principales productos, para que puedas obtener información relevante antes de realizar tu pedido.
 					</h4>
 				</div>
 			</div>
@@ -384,7 +381,7 @@
 
 		<script type="text/javascript">
 
-			$('#second-marcas,#three-marcas').hide('slow');
+			$('#one-marcas,#second-marcas,#three-marcas').attr('class', 'hidden');
 			var element = ['#first-marcas','#second-marcas','#three-marcas']
 			var cont = 1;
 
@@ -392,8 +389,8 @@
 				cont++;
 	      if (cont == 4)
 	        cont = 1
-				$('#first-marcas,#second-marcas,#three-marcas').hide('slide');
-				$(element[cont-1]).show('slide');
+				$('#first-marcas,#second-marcas,#three-marcas').attr('class', 'hidden');
+				$(element[cont-1]).attr('class','animated fadeInRight ');
 
 	    }
 
