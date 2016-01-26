@@ -11,10 +11,9 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nombre</th>
+                <th>Título</th>
                 <th>Categoria</th>
-                <th>Descripción</th>
-                <th>Creado</th>
+                <th>Posición</th>
                 <th></th>
             </tr>
         </thead>
@@ -22,16 +21,13 @@
         {% for entity in entities %}
             <tr>
                 <td><span class="badge">{{ loop.index }}</span></td>
-                <td><a href="{{ path('document_edit', { 'id': entity.id }) }}" class="text-primary"><strong>{{ entity.name }}</strong></a></td>
-                <td>{{ entity.category }}</td>
-                <td>{{ entity.description }}</td>
-                <td>{% if entity.createAt %}{{ entity.createAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td><strong class="text-primary">{{ entity.title }}</strong></td>
+                {% set categoria = ["home","comercial","ingenieria"]%}
+                <td>{{ categoria[entity.categoria - 1] }}</td>
+                <td>{{ entity.posicion }}</td>
                 <td>
-                    {% if entity.path is not null %}
-                        <a href="{{ path('document_download', { 'id': entity.id }) }}" class="glyphicon glyphicon-download text-success"></a>&nbsp;
-                    {% endif %}
-                    <a href="{{ path('document_edit', { 'id': entity.id }) }}" class="glyphicon glyphicon-edit text-primary"></a>&nbsp;
-                    <a href="{{ path('document_delete', { 'id': entity.id }) }}" class="glyphicon glyphicon-trash text-danger" onclick="return confirm('are you sure?')"></a>&nbsp;
+                    <a href="" class="glyphicon glyphicon-download text-success" ng-click="download('{{entity.id ~ '-' ~ entity.title}}')"></a>&nbsp;
+                    <a class="glyphicon glyphicon-trash text-danger" data-toggle="modal" data-target="#myModal" ng-click="setId('{{entity.id}}')"></a>&nbsp;
                 </td>
             </tr>
         {% endfor %}
@@ -41,5 +37,25 @@
     <div class="modal-footer">
         <a href="{{ path('document_new') }}" class="btn btn-primary">Nuevo</a>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                <h4 class="text-center">Seguro que desea eliminar el documento?</h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="delete()">Save changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
 
 {% endblock %}

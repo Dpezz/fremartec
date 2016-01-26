@@ -76,7 +76,7 @@
       <div class="container-sm">
         <img src="{{ asset('bundles/fremartec/dist/images/home/about/hr.png') }}" width="100%">
 
-        <h4 class="text-center text-info"><strong>Nuestro principal desafío es optimizar al máximo el recurso agua, porque sabemos que más agua significa más vida.</strong></h4>
+        <h4 class="text-center text-info"><strong>Nuestro principal desafío es optimizar al máximo el recurso agua,<br> porque sabemos que más agua significa más vida.</strong></h4>
 
         <img src="{{ asset('bundles/fremartec/dist/images/home/about/hr.png') }}" width="100%">
 
@@ -93,8 +93,8 @@
             <br><br><br>
             <img src="{{ asset('bundles/fremartec/dist/images/icons/icono_agua.png') }}">
             <br><br>
-            <button class="btn btn-primary btn-lg btn-block"><i class="fa fa-download fa-lg"></i>&nbsp;Curriculum Fremartec</button>
-            <button class="btn btn-success btn-lg btn-block"><i class="fa fa-eye fa-lg"></i>&nbsp;Ver Curriculum Online</button>
+            <button class="btn btn-primary btn-lg btn-block" ng-click="setId('1_1','fremartec_cv')" data-toggle="modal" data-target="#download" > <i class="fa fa-download fa-lg"></i>&nbsp;Curriculum Fremartec</button>
+            <a href="http://issuu.com/locorovi/docs/curriculum_fremartec_2015_baja" class="btn btn-success btn-lg btn-block" target="_blank"><i class="fa fa-eye fa-lg"></i>&nbsp;Ver Curriculum Online</a>
             <br><br><br>
           </div>
 
@@ -239,6 +239,33 @@
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="download" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-left text-muted" id="myModalLabel"><i class="fa fa-download"></i>&nbsp;Descargar</h4>
+          </div>
+          <div class="modal-body">
+            <form name="userForm" novalidate>
+              <div class="form-group">
+                <h5 class="text-left text-muted"><strong>Ingresa tu Correo Electrónico</strong></h5>
+                <input type="email" class="form-control" ng-model="email" name="email" placeholder="Email" required autofocus></input>
+              </div>
+              <div class="alert alert-success" role="alert" ng-show="visible">
+                <strong><i class="fa fa-check-circle"></i>&emsp;Gracias</strong> por preferir Fremartec.
+              </div>
+              <div class="modal-footer">
+                <a type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-remove"></i>&nbsp;Cerrar</a>
+                <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="save()"><i class="fa fa-download" data-dismiss="modal"></i>&nbsp;Descargar</button>
+              </div>
+            </form>
+        </div>
+      </div>
+  </div>
+</div>
 {% endblock %}
 
 
@@ -259,7 +286,7 @@
           <li><a><i class="fa fa-sun-o"></i>&nbsp;15/20º</a></li>
           <li><a></a></li>
           <li><a></a></li>
-          <li><a><i class="fa fa-dollar"></i>&nbsp;{[{ indices.dolar.valor}]}</a></li>
+          <li><a><strong>U</strong><i class="fa fa-dollar"></i>&nbsp;{[{ indices.dolar.valor}]}</a></li>
           <li><a><i class="fa fa-euro"></i>&nbsp;{[{ indices.euro.valor}]}</a></li>
           <li><a><strong>UF</strong>&nbsp;{[{ indices.uf.valor}]}</a></li>
           <li><a><strong>UTM</strong>&nbsp;{[{ indices.utm.valor}]}</a></li>
@@ -288,7 +315,7 @@
     setInterval('contador()',5000);
 
     $('.carousel').carousel({
-      interval: 2000
+      interval: 6000
     })
   </script>
 

@@ -33,14 +33,14 @@
         <div class="cover-container">
 
         	<div class="inner cover">
-          	<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo-consultora.png') }}"></h1>
-            <p class="lead shadow">
-							Nuestra consultora está capacitada para responder y resolver los principales
-							problemas que afectan nuestra zona, en cuanto a la optimización del recurso agua.
-						</p>
-						<p>
-							<a href="#" type="button" class="btn btn-primary btn-lg" onclick="$('#two').animatescroll();">Conoce Nuestra Propuesta</a>
-						</p>
+          		<h1><img src="{{ asset('bundles/fremartec/dist/images/logos/logo-consultora.png') }}"></h1>
+            	<p class="lead shadow">
+					Nuestra consultora está capacitada para responder y resolver los principales
+					problemas que afectan nuestra zona, en cuanto a la optimización del recurso agua.
+				</p>
+				<p>
+					<a href="#" type="button" class="btn btn-consultora btn-lg" onclick="$('#two').animatescroll();">Conoce Nuestra Propuesta</a>
+				</p>
         	</div>
 
         </div>
@@ -70,8 +70,10 @@
 							<li>Levantamiento topográfico y dibujos.</li>
 						  <li>DIseño y cubicación de obras civiles y proyectos de riego tecnificado.</li>
 						</ul>
-						<br><br><br><br>
-						<br><br><br><br>
+						<br><hr>
+						<img src="{{ asset('bundles/fremartec/dist/images/con/corfo.png') }}" alt="Corfo">
+						<img src="{{ asset('bundles/fremartec/dist/images/con/logo-CNR.jpg') }}" alt="CNR">
+						<br>
 				  </div>
 				</div>
 			</div>
@@ -93,10 +95,8 @@
 						<h5 class="text-primary">BUSCAMOS APOYO CON ENTIDADES DE GOBIERNO PARA FINANCIAR TU PROYECTO.</h5>
 
 						<img src="{{ asset('bundles/fremartec/dist/images/con/logo-fosis.jpg') }}" alt="Fosis">
-						<img src="{{ asset('bundles/fremartec/dist/images/con/logo-CNR.jpg') }}" alt="CNR">
 						<img src="{{ asset('bundles/fremartec/dist/images/con/sercotec.png') }}" alt="Sercotec">
 						<img src="{{ asset('bundles/fremartec/dist/images/con/indap.png') }}" alt="Indap">
-						<img src="{{ asset('bundles/fremartec/dist/images/con/corfo.png') }}" alt="Corfo">
 						<img src="{{ asset('bundles/fremartec/dist/images/con/fia.jpg') }}" alt="FIA">
 				  </div>
 				</div>
@@ -104,7 +104,7 @@
 		</div>
 
 		<div class="panel panel-primary" style="background-color: #fff">
-			<a href="http://www.cnr.gob.cl/Ley18450/Paginas/calendario2015v3.aspx" target="_blank">
+			<a href="http://www.cnr.gob.cl/Ley18450/Paginas/Calendario2016.aspx" target="_blank">
 				<img src="{{ asset('bundles/fremartec/dist/images/con/banner.png') }}" >
 			</a>
 		</div>
@@ -139,6 +139,6 @@
 {% block navbar_bottom %}
 	<h6 class="text-center" style="margin-bottom: 0px;margin-top: 5px;">
 			<span class="text-consultora" style="font-size:20px"><strong>Cotice Aquí sus Proyectos</strong></span>&emsp;&emsp;&emsp;
-			<a href="mailto:ventas@fremartec.cl" type="button" class="btn btn-primary btn-lg"><i class="fa fa-envelope"></i>&nbsp;Cotizar</a>
+			<a href="mailto:ventas@fremartec.cl" type="button" class="btn btn-consultora btn-lg"><i class="fa fa-envelope"></i>&nbsp;Cotizar</a>
 	</h6>
 {% endblock %}

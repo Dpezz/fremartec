@@ -7,10 +7,8 @@
         <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'>
         <title>Fremartec - {% block title %}{% endblock %}</title>
         {% block stylesheets %}
-            <!-- Latest compiled and minified CSS
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">-->
-            <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200italic' rel='stylesheet' type='text/css'>
+ 
+            <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,300italic,400italic,600,600italic' rel='stylesheet' type='text/css'>            
             <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/bootstrap/css/bootstrap.min.css') }}">
             <link rel="stylesheet" href="{{ asset('bundles/fremartec/dist/font-awesome/css/font-awesome.min.css') }}">
             <link href='{{ asset('bundles/fremartec/dist/style/style.css') }}' rel='stylesheet' type='text/css'>
@@ -32,6 +30,7 @@
             <!-- Latest compiled and minified JavaScript
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>-->
             <script src="{{ asset('bundles/fremartec/dist/bootstrap/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset('bundles/fremartec/dist/lodash/lodash.js') }}"></script>
         {% endblock %}
     </body>
 </html>

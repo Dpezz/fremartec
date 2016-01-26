@@ -4,12 +4,13 @@ namespace FremartecBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use FremartecBundle\Entity\Documents;
-use FremartecBundle\Form\DocumentType;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 
 /**
  * @Route("/admin/documents")
@@ -25,13 +26,11 @@ class DocumentController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $url = "files/files.json";
+        $file = file_get_contents($url);
+        $files = json_decode($file,true);
 
-        $entities = $em->getRepository('FremartecBundle:Documents')->findAll();
-
-        return array(
-            'entities' => $entities,
-        );
+        return array("entities" => $files["files"]);
     }
     /**
      * Creates a new Document entity.
@@ -42,43 +41,15 @@ class DocumentController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity = new Documents();
-        $form = $this->createCreateForm($entity);
-        $form->handleRequest($request);
+        $categoria = $request->get('categoria') + 1;
+        $posicion = $request->get('posicion') + 1;
+        $title = $request->get('name');
+        $file = $request->files->get('file');
 
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-
-            $em->persist($entity);
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('document'));
-        }
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+        $this->uploadAction($categoria, $posicion, $title, $file);
+        return new RedirectResponse($this->generateUrl('document'));
     }
 
-    /**
-     * Creates a form to create a Document entity.
-     *
-     * @param Document $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createCreateForm(Documents $entity)
-    {
-        $form = $this->createForm(new DocumentType(), $entity, array(
-            'action' => $this->generateUrl('document_create'),
-            'method' => 'POST',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Create'));
-
-        return $form;
-    }
 
     /**
      * Displays a form to create a new Document entity.
@@ -89,154 +60,94 @@ class DocumentController extends Controller
      */
     public function newAction()
     {
-        $entity = new Documents();
-        $form   = $this->createCreateForm($entity);
-
-        return array(
-            'entity' => $entity,
-            'form'   => $form->createView(),
-        );
+        return array();
     }
 
-    /**
-     * Finds and displays a Document entity.
-     *
-     * @Route("/{id}", name="document_show")
-     * @Method("GET")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('FremartecBundle:Documents')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Document entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
-    /**
-     * Displays a form to edit an existing Document entity.
-     *
-     * @Route("/{id}/edit", name="document_edit")
-     * @Method("GET")
-     * @Template()
-     */
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('FremartecBundle:Documents')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Document entity.');
-        }
-
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
-    /**
-    * Creates a form to edit a Document entity.
-    *
-    * @param Document $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
-    private function createEditForm(Documents $entity)
-    {
-        $form = $this->createForm(new DocumentType(), $entity, array(
-            'action' => $this->generateUrl('document_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
-    }
-    /**
-     * Edits an existing Document entity.
-     *
-     * @Route("/{id}", name="document_update")
-     * @Method("PUT")
-     * @Template("FremartecBundle:Document:edit.html.twig")
-     */
-    public function updateAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('FremartecBundle:Documents')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Document entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isValid()) {
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('document'));
-        }
-
-        return array(
-            'entity'      => $entity,
-            'form'   => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
+    
     /**
      * Deletes a Document entity.
      *
      * @Route("/{id}/delete", name="document_delete")
-     * @Method("GET")
+     * @Method("POST")
      */
     public function deleteAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('FremartecBundle:Documents')->find($id);
+    {   
+        $url = "files/files.json";
+        $file = file_get_contents($url);
+        $json = json_decode($file,true);
 
-        if (!$entity) {
-          throw $this->createNotFoundException('Unable to find Document entity.');
+        $path = "files/".$id.".pdf";
+
+        try{
+            unset($json['files'][$this->find($json["files"], $id)]);
+            if(file_exists($path)){
+                unlink($path);
+            }
+            $json = json_encode($json,true);
+            file_put_contents($url, $json);
+            return new response("ok");
+        }catch(Exception $e){
+            return new response("error");
         }
-
-        $em->remove($entity);
-        $em->flush();
-
-        return $this->redirect($this->generateUrl('document'));
+        return new response("error");
     }
 
-    /**
-     * Creates a form to delete a Document entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('document_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+    private function find($files, $id){
+        foreach ($files as $key => $value) {
+            if($value['id'] == $id){
+                return $key;
+            }
+        }
+        return -1;
+    }
+
+    private function store($categoria, $posicion, $title){
+        $url = "files/files.json";
+        $file = file_get_contents($url);
+        $json = json_decode($file,true);
+        $json['files'][] = array('id'=>$categoria.'_'.$posicion,'categoria'=>$categoria,'posicion'=>$posicion,'title'=>$title);
+        $json = json_encode($json,true);
+        file_put_contents($url, $json);
+    }
+
+    private function uploadAction($categoria, $posicion, $title, $file){
+        try{
+            $url = "files/";
+
+            if (($file instanceof UploadedFile) && ($file->getError() == '0'))
+            {
+                if ($file->getSize() < 999999999999999999999)
+                {
+                    $name = $file->getClientOriginalName();
+                    $ext = $file->guessExtension();
+                    $type = $file->getMimeType();
+                    $size = $file->getClientSize();
+                    
+                    $office = array('pdf');
+                    if( in_array($ext, $office) ){
+                        if($file->isValid()){
+                            $upload = $file->move($url,$categoria.'_'.$posicion.'.'.$ext);
+                            $this->store($categoria, $posicion, $title);
+                            return "true";
+                        }else{
+                            return "false1";
+                        }
+                    }else{
+                        return "false2";
+                    }
+                }else{
+                    return "false3";
+                }
+            }else{
+                return "false4";
+            }
+        }catch(Exception $e){
+          
+            return "false5";
+                        
+        }
+        return "false";
+        //return new RedirectResponse($this->generateUrl('document'));
     }
 
     /**
@@ -248,25 +159,20 @@ class DocumentController extends Controller
      */
     public function downloadAction($id)
     {
-        $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('FremartecBundle:Documents')->find($id);
+        $items = explode('-', $id);
+        $id = $items[0];
+        $title = $items[1];
 
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Document entity.');
-        }
-
-        #$path = $this->get('kernel')->getRootDir(). '/../web/files/'.$id.'.pdf';
-        $path = $entity->getAbsolutePath();
+        $path = $this->get('kernel')->getRootDir(). '/../web/files/'.$id.'.pdf';
+        //$path = $entity->getAbsolutePath();
         $path = preg_replace("/app..../i", "", $path);
         $content = file_get_contents($path,true);
 
-        #return new Response($entity->getAbsolutePath());
-
-        $type = explode('.', $entity->getPath());
+        $type = explode('.', $path);
         $response = new Response();
         $response->headers->set('Content-Type', 'application/'.$type[1]);
         $response->headers->set('Content-Disposition',
-         'attachment;filename='.$entity->getName().'.'.$type[1]);
+         'attachment;filename='.$title.'.'.$type[1]);
         $response->setContent($content);
 
         return $response;

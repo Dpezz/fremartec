@@ -43,7 +43,7 @@
 					Para nosotros contar con buenos insumos es un factor clave
 					para realizar grandes proyectos.
 				</p>
-				<a href="#" onclick="$('#productos').animatescroll();" class="btn btn-success btn-lg">Conoce Nuestros Productos&nbsp;<i class="fa fa-angle-double-down fa-lg"></i></a>
+				<a href="#" onclick="$('#productos').animatescroll();" class="btn btn-comercial btn-lg">Conoce Nuestros Productos&nbsp;<i class="fa fa-angle-double-down fa-lg"></i></a>
           </div>
         </div>
     </div>
@@ -58,8 +58,8 @@
 				<div class="row">
 					<div class="col-md-10">
 						<h6 class="text-consultora text-left" style="padding-left:20px;padding-top:20px;font-size:20px;">
-							<strong>Te invitamos a conocer</strong> nuestra amplia oferta de
-							productos para riego tecnificado, impulsiones y bombeos.</h6>
+							<strong>Te invitamos a conocer</strong> nuestra amplia oferta de productos para
+							su proyecto de riego tecnificado.</h6>
 					</div>
 				</div>
 
@@ -179,7 +179,7 @@
 
 		<div class="row">
 			<div class="col-md-5">
-				<h3 class="page-header text-muted text-left">Líneas de riego y Emisores</h3>
+				<h3 class="page-header text-muted text-left"><strong>Líneas de riego y Emisores</strong></h3>
 				<ol class="text-left text-muted">
 					<li>Cintas de riego</li>
 					<li>Línea de goteo autocompensada</li>
@@ -201,7 +201,7 @@
 
 		<div class="row">
 			<div class="col-md-5">
-				<h3 class="page-header text-muted text-left">Tuberías y fittings</h3>
+				<h3 class="page-header text-muted text-left"><strong>Tuberías y fittings</strong></h3>
 				<ol class="text-left text-muted">
 					<li>Tuberias HDPE Lisas</li>
 					<li>Tuberías HDPE corrugadas</li>
@@ -223,7 +223,7 @@
 				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-01.png') }}">
 			</div>
 			<div class="col-md-5">
-				<h3 class="page-header text-muted text-left">Válvulas</h3>
+				<h3 class="page-header text-muted text-left"><strong>Válvulas</strong></h3>
 				<ol class="text-left text-muted">
 					<li>Válvulas eléctricas plásticas</li>
 					<li>Válvula eléctrica metálica</li>
@@ -240,7 +240,7 @@
 
 		<div class="row">
 			<div class="col-md-5">
-				<h3 class="page-header text-muted text-left">Filtros</h3>
+				<h3 class="page-header text-muted text-left"><strong>Filtros</strong></h3>
 				<ol class="text-left text-muted">
 					<li>Filtros de malla manual</li>
 					<li>Filtro de malla automático</li>
@@ -261,7 +261,7 @@
 				<img class="img-rounded" width="100%" src="{{ asset('bundles/fremartec/dist/images/com/familia/productos-07.png') }}">
 			</div>
 			<div class="col-md-5">
-				<h3 class="page-header text-muted text-left">Accesorios</h3>
+				<h3 class="page-header text-muted text-left"><strong>Accesorios</strong></h3>
 				<ol class="text-left text-muted">
 					<li>Pegamentos PVC</li>
 					<li>Lubricantes PVC</li>
@@ -302,14 +302,15 @@
               </tr>
             </thead>
             <tbody>
-              {% for i in 1..8 %}
-              <tr>
-                <td><span class="badge btn-success" style="background-color:#a0b620">{{i}}</span></td>
-                <td><strong class="label label-default">titulo_{{i}}</strong></td>
-                <td><a href="" class="btn btn-success" data-toggle="modal" data-target="#download" title="download" ng-click="download('primero','comercial')">
-									<i class="fa fa-download"></i>&nbsp;Descargar</a></td>
-              </tr>
-              {% endfor %}
+        		{% set titles = ["geo_HDPE","geo_LLDPE","tuberia_corrugada","tuberia_HDPE_80","tuberia_HDPE_100"] %}
+              	{% for i in 1..5 %}
+              	<tr>
+                	<td><span class="badge btn-success" style="background-color:#a0b620">{{i}}</span></td>
+                	<td><strong class="badge">{{titles[i-1]}}</strong></td>
+                	<td><a href="" class="btn btn-success" title="descargar" ng-click="setId('2_{{i}}','{{titles[i-1]}}')" data-toggle="modal" data-target="#download">
+					<i class="fa fa-download"></i>&nbsp;Descargar</a></td>
+              	</tr>
+              	{% endfor %}
             </tbody>
           </table>
 				</div>
@@ -356,22 +357,19 @@
               </div>
               <div class="modal-footer">
                 <a type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-remove"></i>&nbsp;Cerrar</a>
-                <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="download_save()"><i class="fa fa-download" data-dismiss="modal"></i>&nbsp;Descargar</button>
+                <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="save()"><i class="fa fa-download" data-dismiss="modal"></i>&nbsp;Descargar</button>
               </div>
             </form>
         </div>
       </div>
   </div>
 </div>
-
-
-
 {% endblock %}
 
 {% block navbar_bottom %}
 	<h6 class="text-center" style="margin-bottom: 0px;margin-top: 5px;">
 			<span class="text-comercial" style="font-size:20px"><strong>Cotice Aquí Nuestros Productos</strong></span>&emsp;&emsp;&emsp;
-			<a href="mailto:ventas@fremartec.cl" type="button" class="btn btn-primary btn-lg"><i class="fa fa-envelope"></i>&nbsp;Cotizar</a>
+			<a href="mailto:ventas@fremartec.cl" type="button" class="btn btn-comercial btn-lg"><i class="fa fa-envelope"></i>&nbsp;Cotizar</a>
 	</h6>
 {% endblock %}
 

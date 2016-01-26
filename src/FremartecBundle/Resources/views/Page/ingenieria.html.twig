@@ -46,7 +46,7 @@
 							testeados a través de años de experiencia.
 						</p>
 						<p>
-							<a href="#" onclick="$('#two').animatescroll();" class="btn btn-success btn-lg">Conoce Nuestros Servicios&nbsp;<i class="fa fa-angle-double-down fa-lg"></i></a>
+							<a href="#" onclick="$('#two').animatescroll();" class="btn btn-ingenieria btn-lg">Conoce Nuestros Servicios&nbsp;<i class="fa fa-angle-double-down fa-lg"></i></a>
 						</p>
         	</div>
 
@@ -182,11 +182,12 @@
               </tr>
             </thead>
             <tbody>
-              {% for i in 1..8 %}
+              {% set titles = ["Catalogo Ksb Mega - Curvas 50 Hz","Catalogo Vogt SerieNM-N(INTERIOR)"] %}
+              {% for i in 1..2 %}
               <tr>
                 <td><span class="badge btn-success" style="background-color:#a0b620">{{i}}</span></td>
-                <td><strong class="label label-default">titulo_{{i}}</strong></td>
-                <td><a href="" class="btn btn-success" data-toggle="modal" data-target="#download" title="download" ng-click="download('primero','comercial')">
+                <td><strong class="badge">{{titles[i-1]}}</strong></td>
+                <td><a href="" class="btn btn-success" title="descargar" ng-click="setId('3_{{i}}','{{titles[i-1]}}')" data-toggle="modal" data-target="#download">
 									<i class="fa fa-download"></i>&nbsp;Descargar</a></td>
               </tr>
               {% endfor %}
@@ -314,12 +315,40 @@
     </div>
   </div>
 </div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="download" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-left text-muted" id="myModalLabel"><i class="fa fa-download"></i>&nbsp;Descargar</h4>
+          </div>
+          <div class="modal-body">
+            <form name="userForm" novalidate>
+              <div class="form-group">
+                <h5 class="text-left text-muted"><strong>Ingresa tu Correo Electrónico</strong></h5>
+                <input type="email" class="form-control" ng-model="email" name="email" placeholder="Email" required autofocus></input>
+              </div>
+              <div class="alert alert-success" role="alert" ng-show="visible">
+                <strong><i class="fa fa-check-circle"></i>&emsp;Gracias</strong> por preferir Fremartec.
+              </div>
+              <div class="modal-footer">
+                <a type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-remove"></i>&nbsp;Cerrar</a>
+                <button class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="save()"><i class="fa fa-download" data-dismiss="modal"></i>&nbsp;Descargar</button>
+              </div>
+            </form>
+        </div>
+      </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block navbar_bottom %}
 	<h6 class="text-center" style="margin-bottom: 0px;margin-top: 5px;">
 			<span class="text-ingenieria" style="font-size:20px"><strong>Cotice Aquí Nuestros Servicios</strong></span>&emsp;&emsp;&emsp;
-			<a href="mailto:ventas@fremartec.cl" type="button" class="btn btn-primary btn-lg"><i class="fa fa-envelope"></i>&nbsp;Cotizar</a>
+			<a href="mailto:ventas@fremartec.cl" type="button" class="btn btn-ingenieria btn-lg"><i class="fa fa-envelope"></i>&nbsp;Cotizar</a>
 	</h6>
 {% endblock %}
 
@@ -338,7 +367,7 @@
       area = "mineria"
       modal = "one"
       total = 6
-      interval = setInterval('contador()',5000);
+      interval = setInterval('contador()',4000);
     })
 
     $('#areaone').focusout(function(){
@@ -349,7 +378,7 @@
       area = "agricultura"
       modal = "two"
       total = 6
-      interval = setInterval('contador()',5000);
+      interval = setInterval('contador()',4000);
     })
     $('#areatwo').focusout(function(){
       clearInterval(interval);
@@ -359,7 +388,7 @@
       area = "sanitaria"
       modal = "three"
       total = 4
-      interval = setInterval('contador()',5000);
+      interval = setInterval('contador()',4000);
     })
     $('#areathree').focusout(function(){
       clearInterval(interval);

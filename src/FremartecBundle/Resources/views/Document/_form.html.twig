@@ -1,24 +1,31 @@
-{{ form_start(form) }}
-	{{ form_errors(form) }}
-
+<form action="{{ path('document_create')}}" method="POST" enctype="multipart/form-data">
 	<div class="form-group">
-		{{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+		<label>Nombre</label>
+		<input type="text" name="name" class='form-control' required>
 	</div>
 
 	<div class="form-group">
-		{{ form_row(form.category, {'attr': {'class': 'form-control'}}) }}
+		<label>categoria</label>
+		<select name="categoria" class='form-control' ng-model="category" ng-change="change()" 
+			ng-options="category.name for category in categorys" required>
+	      <option value="{[{category.id}]}">{[{category.name}]}</option>
+	    </select>
 	</div>
 
 	<div class="form-group">
-		{{ form_row(form.description,{'attr': {'class': 'form-control'}}) }}
+		<label>Posición</label>
+		<select name="posicion" class='form-control' ng-model="posicion" 
+			ng-options="posicion.name for posicion in posiciones" required>
+	      <option value="{[{posicion.id}]}">{[{posicion.name}]}</option>
+	    </select>
 	</div>
 
 	<div class="form-group">
-		{{ form_row(form.file,{'attr': {'class': 'form-control'}}) }}
+		<input type="file" name="file" class='form-control' required>
 	</div>
 
 	<div class="modal-footer">
 		<a href="{{ path('document') }}" class="btn btn-default">volver</a>
-		{{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+		<button type="submit" class='btn btn-primary'>Guardar</button>
 	</div>
-{{ form_end(form) }}
+</form>

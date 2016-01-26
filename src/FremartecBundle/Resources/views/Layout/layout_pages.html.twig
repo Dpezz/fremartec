@@ -28,7 +28,7 @@
 		      	{% block iconmenu %}
 	      		  	<li><a href="{{ path('comercial') }}" data-toggle="tooltip" data-placement="bottom" title="Comercial"><img src="{{asset('bundles/fremartec/dist/images/icons/ico1.png')}}" width="20x"></a></li>
 	      		  	<li><a href="{{ path('ingenieria') }}" data-toggle="tooltip" data-placement="bottom" title="Ingeniería"><img src="{{asset('bundles/fremartec/dist/images/icons/ico2.png')}}" width="20x"></a></li>
-				 				<li><a href="{{ path('consultora') }}" data-toggle="tooltip" data-placement="bottom" title="Consultora"><img src="{{asset('bundles/fremartec/dist/images/icons/ico3.png')}}" width="20x"></a></li>
+	 				<li><a href="{{ path('consultora') }}" data-toggle="tooltip" data-placement="bottom" title="Consultora"><img src="{{asset('bundles/fremartec/dist/images/icons/ico3.png')}}" width="20x"></a></li>
 		        {% endblock %}
 		      	</ul>
 		    </div><!-- /.navbar-collapse -->
@@ -37,7 +37,7 @@
 	{% block content %}{% endblock %}
 
 
-	<nav class="navbar navbar-default-bottom navbar-fixed-bottom" style="height: 53px;">
+	<nav class="navbar navbar-default-bottom navbar-fixed-bottom hidden-sm hidden-xs" style="height: 53px;" >
 	  <!-- We use the fluid option here to avoid overriding the fixed width of a normal container within the narrow content columns. -->
 	  <div class="container">{% block navbar_bottom %}{% endblock %}</div>
 	</nav>

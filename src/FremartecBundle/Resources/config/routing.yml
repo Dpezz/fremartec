@@ -9,3 +9,4 @@ _documents:
 _account:
     resource: "@FremartecBundle/Controller/AccountController.php"
     type:     annotation
+

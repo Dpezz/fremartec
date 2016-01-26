@@ -13,7 +13,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use FremartecBundle\Entity\Emails;
 
 
 class PageController extends Controller
@@ -60,54 +59,59 @@ class PageController extends Controller
 
 
     /**
-     * @Route("/email")
+     * @Route("/email/{email}/{id}")
      * @Method("POST")
      */
-    public function email(Request $request){
-        $data = json_decode($request->getContent(), true);
-        $request->request->replace($data);
-
+    public function email(Request $request, $email, $id){
         try{
-            $email = $request->get('email');
-            $title = $request->get('title');
-            $category = $request->get('category');
-
-            $em = $this->getDoctrine()->getManager();
-            if(!$em->getRepository('FremartecBundle:Emails')->findBy(array('email'=>$email))) {
-                $user = new Emails();
-                $user->setEmail($email)
-                ->setCreateAt(new \DateTime('now'));
-
-                //$em = $this->getDoctrine()->getManager();
-                $em->persist($user);
-                $em->flush();
-            }
-            //$this->download($title,$category);
-            return new Response('/download/'.$title.'/'.$category);
+            $title = $this->find($id);
+            $this->store($email);
+            
+            return new Response('download/'.$title.'/'.$id);
         }catch(Exception $e){
         }
         
         return new Response(0);
     }
 
+    private function find($id){
+        $url = "files/files.json";
+        $file = file_get_contents($url);
+        $json = json_decode($file,true);
+        foreach ($json['files'] as $key => $value) {
+            if($value['id'] == $id){
+                return $value['title'];
+            }
+        }
+        return -1;
+    }
+
+    private function store($email){
+        $url = "files/email.json";
+        $file = file_get_contents($url);
+        $json = json_decode($file,true);
+        $json['emails'][] = array('email'=>$email);
+        $json = json_encode($json,true);
+        file_put_contents($url, $json);
+    }
+
     /**
-     * @Route("/download/{title}/{url}", name="download")
+     * @Route("/download/{title}/{id}", name="download")
      * @Method("GET")
      */
-    public function download(Request $request,$title,$url){
-        $em = $this->getDoctrine()->getManager();
-        if( $doc = $em->getRepository('FremartecBundle:Documents')->findOneBy(array('title'=>$title,'category'=>$url)))
-        {
-            $path = $this->get('kernel')->getRootDir(). '/../web/files/'.$doc->getId().'.pdf';
-            $path = preg_replace("/app..../i", "", $path);
-            $content = file_get_contents($path,true);
-            $response = new Response();
-            $response->headers->set('Content-Type', 'application/pdf');
-            $response->headers->set('Content-Disposition',
-             'attachment;filename='.$title.'_'.$url.'.pdf');
-            $response->setContent($content);
-            return $response;
-        }
-        return new RedirectResponse($this->generateUrl( trim($url,'/')));
+    public function download(Request $request,$title,$id){
+        $path = $this->get('kernel')->getRootDir(). '/../web/files/'.$id.'.pdf';
+        //$path = $entity->getAbsolutePath();
+        $path = preg_replace("/app..../i", "", $path);
+        $content = file_get_contents($path,true);
+
+        $type = explode('.', $path);
+        $response = new Response();
+        $response->headers->set('Content-Type', 'application/'.$type[1]);
+        $response->headers->set('Content-Disposition',
+         'attachment;filename='.$title.'.'.$type[1]);
+        $response->setContent($content);
+
+        return $response;
     }
 }
