@@ -1,0 +1,124 @@
+.flip {
+  -webkit-perspective: 800;
+  perspective: 800;
+  position: relative;
+  text-align: center;
+  height: 750px
+}
+
+.flip .card.flipped {
+  -webkit-transform: rotatey(-180deg);
+  transform: rotatey(-180deg);
+}
+
+.flip .card {
+  height: 100%;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transition: 0.5s;
+  transform-style: preserve-3d;
+  transition: 0.5s;
+}
+
+.flip .card .face {
+  -webkit-backface-visibility: hidden ;
+    backface-visibility: hidden ;
+  z-index: 2;
+}
+
+.flip .card .front {
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.flip .card .back {
+  -webkit-transform: rotatey(-180deg);
+    transform: rotatey(-180deg);
+}
+.inner{margin:0px !important;}
+
+/* front  */
+#area1
+{
+    background-image: url('../images/home/enterprise/image_1.jpg');
+    background-size: 100% 100%;
+    height: 750px;
+}
+
+#area2
+{
+    background-image: url('../images/home/enterprise/image_2.jpg');
+    background-size: 100% 100%;
+    height: 750px;
+}
+
+#area3
+{
+    background-image: url('../images/home/enterprise/image_3.jpg');
+    background-size: 100% 100%;
+    height: 750px;
+}
+
+/* back */
+#back1
+{
+    background-color: #8DC046;
+    height: 750px;
+}
+
+#back2
+{
+    background-color: #259952;
+    height: 750px;
+}
+
+#back3
+{
+    background-color: #4A90E2;
+    height: 750px;
+}
+
+/* Since positioning the image, we need to help out the caption */
+.caption {
+  margin-top: 25%;
+}
+.caption p{
+  padding: 20px;
+  color: #fff
+}
+.caption img{
+  padding-top: 5%;
+}
+
+
+@media (max-width: 1200px) {
+    .flip, #area1, #back1, #area2, #back2, #area3, #back3, #area4, #back4 {
+        height: 400px;
+    }
+}
+
+/* card ingenieria */
+#area1-ingenieria
+{
+    background-image: url('../images/ing/service/image_1.jpg');
+    background-size: 100% 100%;
+    height: 474px;
+}
+#area2-ingenieria
+{
+    background-image: url('../images/ing/service/image_2.jpg');
+    background-size: 100% 100%;
+    height: 474px;
+}
+#area3-ingenieria
+{
+    background-image: url('../images/ing/service/image_3.jpg');
+    background-size: 100% 100%;
+    height: 474px;
+}
+#area4-ingenieria
+{
+    background-image: url('../images/ing/service/image_4.jpg');
+    background-size: 100% 100%;
+    height: 474px;
+}

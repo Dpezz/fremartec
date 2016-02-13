@@ -100,7 +100,8 @@ class PageController extends Controller
      * @Method("GET")
      */
     public function download(Request $request,$title,$id){
-        $path = $this->get('kernel')->getRootDir(). '/../web/files/'.$id.'.pdf';
+        //$path = $this->get('kernel')->getRootDir(). '/../web/files/'.$id.'.pdf';
+        $path = $this->get('kernel')->getRootDir(). '/web/files/'.$id.'.pdf';
         //$path = $entity->getAbsolutePath();
         $path = preg_replace("/app..../i", "", $path);
         $content = file_get_contents($path,true);

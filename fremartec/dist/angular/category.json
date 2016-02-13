@@ -1,0 +1,84 @@
+{
+	"categorys":
+	[
+		{
+			"id": 1,
+			"name": "home",
+			"files": [
+				{
+					"id": 1,
+					"name": "home_1"
+				},
+				{
+					"id": 2,
+					"name": "home_2"
+				},
+				{
+					"id": 3,
+					"name": "home_3"
+				},
+				{
+					"id": 4,
+					"name": "home_4"
+				},
+				{
+					"id": 5,
+					"name": "home_5"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "comercial",
+			"files": [
+				{
+					"id": 1,
+					"name": "comercial_1"
+				},
+				{
+					"id": 2,
+					"name": "comercial_2"
+				},
+				{
+					"id": 3,
+					"name": "comercial_3"
+				},
+				{
+					"id": 4,
+					"name": "comercial_4"
+				},
+				{
+					"id": 5,
+					"name": "comercial_5"
+				}
+
+			]
+		},
+		{
+			"id": 3,
+			"name": "ingenieria",
+			"files": [
+				{
+					"id": 1,
+					"name": "ingenieria_1"
+				},
+				{
+					"id": 2,
+					"name": "ingenieria_2"
+				},
+				{
+					"id": 3,
+					"name": "ingenieria_3"
+				},
+				{
+					"id": 4,
+					"name": "ingenieria_4"
+				},
+				{
+					"id": 5,
+					"name": "ingenieria_5"
+				}
+			]
+		}
+	]
+}
